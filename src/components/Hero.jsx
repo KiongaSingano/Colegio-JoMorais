@@ -1,412 +1,409 @@
 import { TypeAnimation } from "react-type-animation";
 import { ClipboardPen, Search } from "lucide-react";
 import escola from "../assets/escola.jpg";
+import { Link } from "react-router-dom";
 
 
-export default function Hero() {
+export default function Hero({ abrirConsulta }) {
 
-  return (
 
-    <section
+return (
 
-      id="inicio"
 
-      className="
-        relative
-        min-h-[520px]
-        sm:min-h-[600px]
-        md:min-h-screen
-        flex
-        items-center
-        justify-center
-        bg-center
-        bg-cover
-        overflow-hidden
-        pt-20
-        pb-8
-      "
+<section
 
-      style={{
-        backgroundImage: `url(${escola})`
-      }}
+id="inicio"
 
-    >
+className="
+relative
+min-h-[520px]
+sm:min-h-[600px]
+md:min-h-screen
+flex
+items-center
+justify-center
+bg-center
+bg-cover
+overflow-hidden
+pt-20
+pb-8
+"
 
+style={{
 
+backgroundImage:`url(${escola})`
 
-      {/* Camada escura */}
+}}
 
-      <div
+>
 
-        className="
-          absolute
-          inset-0
-          bg-black/60
-        "
 
-      ></div>
 
+{/* Camada escura */}
 
+<div
 
+className="
+absolute
+inset-0
+bg-black/60
+"
 
+></div>
 
 
 
-      <div
 
-        className="
-          relative
-          z-10
-          w-full
-          max-w-7xl
-          mx-auto
-          px-4
-          sm:px-6
-          md:px-10
-          text-center
-          text-white
-        "
 
-      >
 
 
+<div
 
+className="
+relative
+z-10
+w-full
+max-w-7xl
+mx-auto
+px-4
+sm:px-6
+md:px-10
+text-center
+text-white
+"
 
+>
 
 
-        {/* Inscrições abertas */}
 
-        <div
 
-          className="
-            mb-5
-            sm:mb-6
-            flex
-            justify-center
-          "
 
-        >
+{/* Inscrições abertas */}
 
-          <span
 
-            className="
-              bg-red-600
-              px-5
-              py-2
-              sm:px-8
-              sm:py-3
-              rounded-full
-              text-sm
-              sm:text-lg
-              md:text-2xl
-              font-extrabold
-              uppercase
-              tracking-wide
-              shadow-xl
-              animate-pulse
-            "
+<div
 
-          >
+className="
+mb-5
+sm:mb-6
+flex
+justify-center
+"
 
-            Inscrições Abertas
+>
 
-          </span>
 
+<span
 
-        </div>
+className="
+bg-red-600
+px-5
+py-2
+sm:px-8
+sm:py-3
+rounded-full
+text-sm
+sm:text-lg
+md:text-2xl
+font-extrabold
+uppercase
+tracking-wide
+shadow-xl
+animate-pulse
+"
 
+>
 
+Inscrições Abertas
 
+</span>
 
 
+</div>
 
 
 
 
-        {/* Texto animado */}
 
-        <TypeAnimation
 
 
-          sequence={[
 
-            "Garanta já a sua vaga no CEIPP Jerma",
 
-            3000,
+{/* Texto animado */}
 
-            "",
 
-            1000
+<TypeAnimation
 
-          ]}
 
+sequence={[
 
-          wrapper="h1"
+"Garanta já a sua vaga no CEIPP Jerma",
 
+3000,
 
-          speed={50}
+"",
 
+1000
 
-          repeat={Infinity}
+]}
 
 
-          cursor={true}
+wrapper="h1"
 
 
-          className="
+speed={50}
 
-            block
 
-            whitespace-nowrap
+repeat={Infinity}
 
-            text-base
 
-            sm:text-3xl
+cursor={true}
 
-            md:text-5xl
 
-            lg:text-6xl
+className="
 
-            font-extrabold
+block
 
-            leading-tight
+whitespace-nowrap
 
-          "
+text-base
 
+sm:text-3xl
 
-        />
+md:text-5xl
 
+lg:text-6xl
 
+font-extrabold
 
+leading-tight
 
+"
 
+/>
 
 
 
 
-        {/* Texto de apoio */}
 
 
-        <p
 
-          className="
 
-            mt-5
 
-            sm:mt-6
+{/* Texto apoio */}
 
-            max-w-3xl
 
-            mx-auto
+<p
 
-            text-sm
+className="
 
-            sm:text-base
+mt-5
 
-            md:text-xl
+sm:mt-6
 
-            text-gray-200
+max-w-3xl
 
-          "
+mx-auto
 
-        >
+text-sm
 
-          Faça a sua matrícula online de forma simples,
-          rápida e segura. Prepare o seu futuro com o
-          CEIPP Jerma.
+sm:text-base
 
-        </p>
+md:text-xl
 
+text-gray-200
 
+"
 
+>
 
+Faça a sua matrícula online de forma simples,
+rápida e segura. Prepare o seu futuro com o
+CEIPP Jerma.
 
+</p>
 
 
 
 
-        {/* Botões */}
 
 
-        <div
 
-          className="
 
-            mt-8
 
-            sm:mt-10
+{/* Botões */}
 
-            flex
 
-            flex-row
+<div
 
-            justify-center
+className="
 
-            items-center
+mt-8
 
-            gap-2
+sm:mt-10
 
-            sm:gap-5
+flex
 
-          "
+flex-row
 
-        >
+justify-center
 
+items-center
 
+gap-2
 
+sm:gap-5
 
+"
 
-          <button
+>
 
 
-            className="
 
-              flex
 
-              items-center
 
-              justify-center
 
-              gap-2
 
-              bg-red-600
+{/* Fazer inscrição */}
 
-              hover:bg-red-700
 
-              px-3
+<Link
 
-              sm:px-8
+to="/inscricao"
 
-              py-3
+className="
+flex
+items-center
+justify-center
+gap-2
+bg-red-600
+hover:bg-red-700
+px-3
+sm:px-8
+py-3
+sm:py-4
+rounded-full
+font-bold
+text-xs
+sm:text-lg
+shadow-xl
+transition
+hover:scale-105
+whitespace-nowrap
+"
 
-              sm:py-4
+>
 
-              rounded-full
 
-              font-bold
+<ClipboardPen size={18}/>
 
-              text-xs
 
-              sm:text-lg
+Fazer Inscrição
 
-              shadow-xl
 
-              transition
+</Link>
 
-              hover:scale-105
 
-              whitespace-nowrap
 
-            "
 
 
-          >
 
 
-            <ClipboardPen
 
-              size={18}
 
-              className="sm:w-[22px] sm:h-[22px]"
+{/* Consultar inscrição */}
 
-            />
 
+<button
 
-            Fazer Inscrição
 
+onClick={abrirConsulta}
 
-          </button>
 
+className="
 
+flex
 
+items-center
 
+justify-center
 
+gap-2
 
+border-2
 
+border-white
 
+hover:bg-white
 
-          <button
+hover:text-purple-800
 
+px-3
 
-            className="
+sm:px-8
 
-              flex
+py-3
 
-              items-center
+sm:py-4
 
-              justify-center
+rounded-full
 
-              gap-2
+font-bold
 
-              border-2
+text-xs
 
-              border-white
+sm:text-lg
 
-              hover:bg-white
+transition
 
-              hover:text-purple-800
+whitespace-nowrap
 
-              px-3
+"
 
-              sm:px-8
 
-              py-3
+>
 
-              sm:py-4
 
-              rounded-full
+<Search
 
-              font-bold
+size={18}
 
-              text-xs
+className="sm:w-[22px] sm:h-[22px]"
 
-              sm:text-lg
+/>
 
-              transition
 
-              whitespace-nowrap
 
-            "
+Consultar Inscrição
 
 
-          >
 
+</button>
 
 
-            <Search
 
-              size={18}
 
-              className="sm:w-[22px] sm:h:[22px]"
 
-            />
 
 
-            Consultar Inscrição
+</div>
 
 
 
-          </button>
 
 
 
 
+</div>
 
 
-        </div>
 
 
 
+</section>
 
 
-      </div>
+)
 
-
-
-
-
-    </section>
-
-  );
 
 }

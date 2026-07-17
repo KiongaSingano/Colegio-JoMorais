@@ -8,7 +8,7 @@ import {
   Phone,
   ClipboardEdit
 } from "lucide-react";
-
+import { Link } from "react-router-dom";
 import logo from "../assets/logo.png";
 
 
@@ -221,9 +221,9 @@ group-hover:w-full
 
 
 
-<a
+<Link
 
-href="#"
+to="/inscricao"
 
 className="
 flex
@@ -245,7 +245,7 @@ shadow-md
 
 Matrícula
 
-</a>
+</Link>
 
 
 
