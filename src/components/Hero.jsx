@@ -17,7 +17,7 @@ Bem-vindo ao Colégio Jerma
 
 
 <p className="mt-6 text-lg">
-Educação de qualidade, formando estudantes preparados para o futuro.
+Aposta pelo ensino de qualidadeo.
 </p>
 
 
