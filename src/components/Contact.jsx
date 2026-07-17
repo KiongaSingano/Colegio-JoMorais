@@ -1,139 +1,329 @@
-import { MapPin, Phone, Mail, Clock } from "lucide-react";
+import { Phone, Mail, MapPin, Clock } from "lucide-react";
+
 
 export default function Contact(){
 
-return(
 
-<section 
-id="contactos" 
-className="py-20 px-6 bg-gray-50"
+return (
+
+<section
+id="contactos"
+className="
+py-24
+px-6
+bg-gray-50
+"
 >
 
-<div className="max-w-6xl mx-auto">
+<div
+className="
+max-w-7xl
+mx-auto
+"
+>
 
 
-<div className="text-center mb-12">
+{/* Título */}
 
-<h2 className="text-4xl md:text-5xl font-bold text-blue-900">
-Entre em Contacto
+<div
+className="
+text-center
+mb-14
+"
+>
+
+<h2
+className="
+text-4xl
+md:text-5xl
+font-extrabold
+text-purple-900
+"
+>
+Contactos
 </h2>
 
-<p className="mt-4 text-gray-600">
-Estamos disponíveis para esclarecer dúvidas sobre matrículas e informações académicas.
+
+<p
+className="
+mt-4
+text-gray-600
+"
+>
+Entre em contacto com o Colégio Jerma para mais informações.
 </p>
+
 
 </div>
 
 
 
-<div className="grid md:grid-cols-2 gap-10">
+
+
+<div
+className="
+grid
+lg:grid-cols-2
+gap-10
+items-start
+"
+>
+
+
 
 
 
 {/* Informações */}
 
-<div className="bg-white rounded-2xl shadow-lg p-8">
+<div
+className="
+space-y-5
+"
+>
 
 
-<h3 className="text-2xl font-bold text-blue-900 mb-6">
-Informações da Instituição
+<div className="
+bg-white
+rounded-2xl
+p-6
+shadow-md
+flex
+items-center
+gap-5
+hover:shadow-xl
+transition
+"
+>
+
+<div
+className="
+w-14
+h-14
+rounded-full
+bg-red-100
+flex
+items-center
+justify-center
+"
+>
+
+<Phone
+className="text-red-600"
+/>
+
+</div>
+
+
+<div>
+
+<h3 className="
+font-bold
+text-purple-900
+"
+>
+Telefone
 </h3>
 
-
-
-<div className="space-y-6">
-
-
-<div className="flex items-center gap-4">
-
-<div className="bg-blue-100 p-3 rounded-full">
-<MapPin className="text-blue-900"/>
-</div>
-
-<div>
-<p className="font-semibold">
-Localização
-</p>
-
-<p className="text-gray-600">
-Huambo, Angola
-</p>
-</div>
-
-</div>
-
-
-
-<div className="flex items-center gap-4">
-
-<div className="bg-blue-100 p-3 rounded-full">
-<Phone className="text-blue-900"/>
-</div>
-
-<div>
-
-<p className="font-semibold">
-Telefone
-</p>
-
-<p className="text-gray-600">
-+244 900 000 000
+<p className="
+text-gray-600
+"
+>
++244 946 614 043
 </p>
 
 </div>
 
+
 </div>
 
 
 
-<div className="flex items-center gap-4">
 
-<div className="bg-blue-100 p-3 rounded-full">
-<Mail className="text-blue-900"/>
+
+<div className="
+bg-white
+rounded-2xl
+p-6
+shadow-md
+flex
+items-center
+gap-5
+hover:shadow-xl
+transition
+"
+>
+
+<div
+className="
+w-14
+h-14
+rounded-full
+bg-purple-100
+flex
+items-center
+justify-center
+"
+>
+
+<Mail
+className="text-purple-700"
+/>
+
 </div>
+
 
 <div>
 
-<p className="font-semibold">
+<h3 className="
+font-bold
+text-purple-900
+"
+>
 Email
+</h3>
+
+<p className="
+text-gray-600
+"
+>
+ceippjerma@gmail.com
 </p>
 
-<p className="text-gray-600">
-contacto@colegiojerma.com
-</p>
-
 </div>
+
 
 </div>
 
 
 
-<div className="flex items-center gap-4">
 
-<div className="bg-blue-100 p-3 rounded-full">
-<Clock className="text-blue-900"/>
+
+
+
+<div className="
+bg-white
+rounded-2xl
+p-6
+shadow-md
+flex
+items-center
+gap-5
+hover:shadow-xl
+transition
+"
+>
+
+<div
+className="
+w-14
+h-14
+rounded-full
+bg-red-100
+flex
+items-center
+justify-center
+"
+>
+
+<MapPin
+className="text-red-600"
+/>
+
 </div>
+
 
 <div>
 
-<p className="font-semibold">
+<h3 className="
+font-bold
+text-purple-900
+"
+>
+Localização
+</h3>
+
+<p className="
+text-gray-600
+"
+>
+1º de Maio, Cainda - Angola
+</p>
+
+
+</div>
+
+
+</div>
+
+
+
+
+
+
+
+<div className="
+bg-white
+rounded-2xl
+p-6
+shadow-md
+flex
+items-center
+gap-5
+hover:shadow-xl
+transition
+"
+>
+
+<div
+className="
+w-14
+h-14
+rounded-full
+bg-purple-100
+flex
+items-center
+justify-center
+"
+>
+
+<Clock
+className="text-purple-700"
+/>
+
+</div>
+
+
+<div>
+
+<h3 className="
+font-bold
+text-purple-900
+"
+>
 Horário
+</h3>
+
+<p className="
+text-gray-600
+"
+>
+Segunda - Sexta | 07h00 - 18h00
 </p>
 
-<p className="text-gray-600">
-Segunda - Sexta: 07h às 17h
-</p>
-
-</div>
-
-</div>
-
-
 
 </div>
 
 
 </div>
+
+
+
+
+</div>
+
+
+
+
 
 
 
@@ -141,16 +331,35 @@ Segunda - Sexta: 07h às 17h
 
 {/* Formulário */}
 
-<div className="bg-white rounded-2xl shadow-lg p-8">
+<div
+className="
+bg-white
+rounded-3xl
+shadow-xl
+p-8
+"
+>
 
 
-<h3 className="text-2xl font-bold text-blue-900 mb-6">
+<h3
+className="
+text-2xl
+font-bold
+text-purple-900
+mb-6
+"
+>
 Envie uma mensagem
 </h3>
 
 
 
-<form className="space-y-5">
+
+<form
+className="
+space-y-5
+"
+>
 
 
 <input
@@ -159,8 +368,16 @@ type="text"
 
 placeholder="Nome completo"
 
-className="w-full border rounded-lg px-4 py-3 outline-none focus:ring-2 focus:ring-blue-600"
-
+className="
+w-full
+px-5
+py-3
+rounded-xl
+border
+outline-none
+focus:ring-2
+focus:ring-purple-600
+"
 />
 
 
@@ -171,31 +388,62 @@ type="email"
 
 placeholder="Email"
 
-className="w-full border rounded-lg px-4 py-3 outline-none focus:ring-2 focus:ring-blue-600"
+className="
+w-full
+px-5
+py-3
+rounded-xl
+border
+outline-none
+focus:ring-2
+focus:ring-purple-600
+"
 
 />
+
+
 
 
 
 <input
 
-type="tel"
+type="text"
 
 placeholder="Telefone"
 
-className="w-full border rounded-lg px-4 py-3 outline-none focus:ring-2 focus:ring-blue-600"
+className="
+w-full
+px-5
+py-3
+rounded-xl
+border
+outline-none
+focus:ring-2
+focus:ring-purple-600
+"
 
 />
 
 
 
+
+
 <textarea
 
-rows="4"
+rows="5"
 
 placeholder="Mensagem"
 
-className="w-full border rounded-lg px-4 py-3 outline-none focus:ring-2 focus:ring-blue-600"
+className="
+w-full
+px-5
+py-3
+rounded-xl
+border
+outline-none
+focus:ring-2
+focus:ring-purple-600
+"
 
 ></textarea>
 
@@ -204,7 +452,16 @@ className="w-full border rounded-lg px-4 py-3 outline-none focus:ring-2 focus:ri
 
 <button
 
-className="w-full bg-blue-900 text-white py-3 rounded-lg font-bold hover:bg-blue-700 transition"
+className="
+w-full
+py-3
+rounded-xl
+bg-purple-700
+text-white
+font-bold
+hover:bg-purple-900
+transition
+"
 
 >
 
@@ -217,8 +474,9 @@ Enviar Mensagem
 </form>
 
 
-
 </div>
+
+
 
 
 </div>

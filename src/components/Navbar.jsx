@@ -1,24 +1,64 @@
 import { useState } from "react";
-import { Menu, X, GraduationCap } from "lucide-react";
+import {
+  Menu,
+  X,
+  Home,
+  BookOpen,
+  Users,
+  Phone,
+  ClipboardEdit
+} from "lucide-react";
+
+import logo from "../assets/logo.png";
 
 
 export default function Navbar(){
 
-const [open,setOpen] = useState(false);
+const [menuOpen,setMenuOpen] = useState(false);
 
 
-return (
+const links = [
+
+{
+nome:"Início",
+icon:<Home size={18}/>,
+url:"#inicio"
+},
+
+{
+nome:"Cursos",
+icon:<BookOpen size={18}/>,
+url:"#cursos"
+},
+
+{
+nome:"Sobre",
+icon:<Users size={18}/>,
+url:"#sobre"
+},
+
+{
+nome:"Contactos",
+icon:<Phone size={18}/>,
+url:"#contactos"
+}
+
+];
+
+
+
+return(
 
 <nav
 className="
 fixed
 top-0
+left-0
 w-full
 z-50
-bg-purple-950/80
+bg-purple-950/95
 backdrop-blur-md
 shadow-lg
-text-white
 "
 >
 
@@ -28,12 +68,13 @@ className="
 max-w-7xl
 mx-auto
 px-6
-py-4
+py-3
 flex
 items-center
 justify-between
 "
 >
+
 
 
 {/* Logo */}
@@ -43,24 +84,23 @@ className="
 flex
 items-center
 gap-3
-cursor-pointer
 "
 >
 
 
-<div
+<img
+
+src={logo}
+
+alt="CEIPP Jerma"
+
 className="
-bg-red-600
-p-2
-rounded-full
-shadow-lg
+w-16
+h-16
+object-contain
 "
->
 
-<GraduationCap size={32}/>
-
-</div>
-
+/>
 
 
 <div>
@@ -70,10 +110,15 @@ className="
 text-xl
 md:text-2xl
 font-extrabold
-tracking-wide
+text-white
 "
 >
-Colégio Jerma
+
+CEIPP
+<span className="text-red-500">
+ Jerma
+</span>
+
 </h1>
 
 
@@ -83,7 +128,9 @@ text-xs
 text-gray-300
 "
 >
-Educação e Futuro
+
+Aposta Pelo Ensino de Qualidade
+
 </p>
 
 
@@ -91,6 +138,8 @@ Educação e Futuro
 
 
 </div>
+
+
 
 
 
@@ -108,181 +157,128 @@ gap-8
 >
 
 
-<a
-href="#inicio"
-className="
-relative
-hover:text-red-400
-transition
-duration-300
-group
-"
->
-Início
-
-<span
-className="
-absolute
-left-0
-bottom-[-8px]
-w-0
-h-[2px]
-bg-red-500
-group-hover:w-full
-transition-all
-duration-300
-"
-></span>
-
-</a>
-
-
-
-
-<a
-href="#cursos"
-className="
-relative
-hover:text-red-400
-transition
-duration-300
-group
-"
->
-Cursos
-
-<span
-className="
-absolute
-left-0
-bottom-[-8px]
-w-0
-h-[2px]
-bg-red-500
-group-hover:w-full
-transition-all
-duration-300
-"
-></span>
-
-</a>
-
-
-
-
-
-<a
-href="#sobre"
-className="
-relative
-hover:text-red-400
-transition
-duration-300
-group
-"
->
-Sobre
-
-<span
-className="
-absolute
-left-0
-bottom-[-8px]
-w-0
-h-[2px]
-bg-red-500
-group-hover:w-full
-transition-all
-duration-300
-"
-></span>
-
-</a>
-
-
-
-
-
-<a
-href="#contactos"
-className="
-relative
-hover:text-red-400
-transition
-duration-300
-group
-"
->
-Contactos
-
-<span
-className="
-absolute
-left-0
-bottom-[-8px]
-w-0
-h-[2px]
-bg-red-500
-group-hover:w-full
-transition-all
-duration-300
-"
-></span>
-
-</a>
-
-
-
-
-
-{/* Botão */}
-
-<button
-
-className="
-bg-red-600
-hover:bg-red-700
-px-6
-py-3
-rounded-full
-font-bold
-transition
-duration-300
-hover:scale-105
-shadow-lg
-"
-
->
-
-Matrícula
-
-</button>
-
-
-
-</div>
-
-
-
-
-
-{/* Mobile button */}
-
-<button
-
-className="
-md:hidden
-"
-
-onClick={()=>setOpen(!open)}
-
->
-
 {
-open ? <X size={30}/> : <Menu size={30}/>
+
+links.map((link,index)=>(
+
+
+<a
+
+key={index}
+
+href={link.url}
+
+className="
+group
+relative
+flex
+items-center
+gap-2
+text-gray-200
+hover:text-white
+transition
+"
+
+>
+
+
+{link.icon}
+
+<span>
+{link.nome}
+</span>
+
+
+
+{/* Barra inferior */}
+
+<span
+
+className="
+absolute
+left-0
+bottom-[-6px]
+h-[2px]
+w-0
+bg-red-500
+transition-all
+duration-300
+group-hover:w-full
+"
+
+></span>
+
+
+
+</a>
+
+
+))
+
 }
 
 
+
+
+
+<a
+
+href="#"
+
+className="
+flex
+items-center
+gap-2
+bg-red-600
+px-5
+py-2
+rounded-full
+font-semibold
+hover:bg-red-700
+transition
+shadow-md
+"
+
+>
+
+<ClipboardEdit size={18}/>
+
+Matrícula
+
+</a>
+
+
+
+</div>
+
+
+
+
+
+
+
+
+
+{/* Mobile */}
+
+<button
+
+onClick={()=>setMenuOpen(!menuOpen)}
+
+className="
+md:hidden
+text-white
+"
+
+>
+
+{
+menuOpen ?
+<X size={30}/>
+:
+<Menu size={30}/>
+}
+
 </button>
 
 
@@ -293,67 +289,60 @@ open ? <X size={30}/> : <Menu size={30}/>
 
 
 
-{/* Menu Mobile */}
+
+
+{/* Menu mobile */}
 
 {
 
-open &&
+menuOpen && (
 
 <div
 className="
 md:hidden
+bg-purple-900
 px-6
-pb-6
-space-y-5
-bg-purple-950
+py-5
+space-y-4
 "
 >
 
 
-<a href="#inicio"
-className="block hover:text-red-400"
->
-Início
-</a>
+{
+
+links.map((link,index)=>(
 
 
-<a href="#cursos"
-className="block hover:text-red-400"
->
-Cursos
-</a>
+<a
 
+key={index}
 
-<a href="#sobre"
-className="block hover:text-red-400"
->
-Sobre
-</a>
+href={link.url}
 
-
-<a href="#contactos"
-className="block hover:text-red-400"
->
-Contactos
-</a>
-
-
-
-<button
 className="
-w-full
-bg-red-600
-py-3
-rounded-full
-font-bold
+flex
+items-center
+gap-3
+text-white
 "
+
 >
-Matrícula
-</button>
+
+{link.icon}
+
+{link.nome}
+
+</a>
+
+
+))
+
+}
 
 
 </div>
 
+)
 
 }
 

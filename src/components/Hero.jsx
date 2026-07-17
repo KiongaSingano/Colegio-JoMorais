@@ -88,7 +88,7 @@ export default function Hero() {
 <TypeAnimation
 
   sequence={[
-    "Garanta já a sua vaga no Colégio Jerma",
+    "Garanta já a sua vaga no CEIPP Jerma",
     3000,
     "",
     1000
@@ -128,7 +128,7 @@ export default function Hero() {
         >
           Faça a sua matrícula online de forma simples,
           rápida e segura. Prepare o seu futuro com o
-          Colégio Jerma.
+          CEIPP Jerma.
         </p>
 
 
