@@ -11,13 +11,15 @@ export default function Hero() {
       id="inicio"
       className="
         relative
-        h-screen
+        min-h-screen
         flex
         items-center
         justify-center
-        bg-fixed
         bg-center
         bg-cover
+        overflow-hidden
+        pt-24
+        pb-10
       "
       style={{
         backgroundImage: `url(${escola})`
@@ -25,7 +27,7 @@ export default function Hero() {
     >
 
 
-      {/* Camada para escurecer imagem */}
+      {/* Camada escura da imagem */}
       <div
         className="
           absolute
@@ -41,136 +43,177 @@ export default function Hero() {
         className="
           relative
           z-10
+          w-full
+          max-w-7xl
+          mx-auto
+          px-2
+          sm:px-6
+          md:px-10
           text-center
           text-white
-          px-6
-          max-w-6xl
-          mx-auto
         "
       >
 
 
 
-        {/* Destaque inscrições */}
+        {/* Inscrições abertas */}
+
         <div
           className="
-            mb-8
+            mb-6
             flex
             justify-center
           "
         >
 
           <span
+
             className="
               bg-red-600
-              text-white
-              px-8
+              px-5
               py-3
+              sm:px-8
               rounded-full
-              text-lg
+              text-sm
+              sm:text-lg
               md:text-2xl
               font-extrabold
               uppercase
-              tracking-widest
-              shadow-lg
+              tracking-wide
+              shadow-xl
               animate-pulse
             "
+
           >
+
             Inscrições Abertas
+
           </span>
+
 
         </div>
 
 
 
 
-        {/* Texto com efeito de escrita */}
-<TypeAnimation
-
-  sequence={[
-    "Garanta já a sua vaga no CEIPP Jerma",
-    3000,
-    "",
-    1000
-  ]}
-
-  wrapper="h1"
-
-  speed={50}
-
-  repeat={Infinity}
-
-  cursor={true}
-
-  className="
-    text-3xl
-    md:text-5xl
-    lg:text-6xl
-    font-extrabold
-    whitespace-nowrap
-  "
-
-/>
 
 
+        {/* Texto animado */}
 
+        <TypeAnimation
 
-        {/* Texto fixo */}
-        <p
+          sequence={[
+            "Garanta já a sua vaga no CEIPP Jerma",
+            3000,
+            "",
+            1000
+          ]}
+
+          wrapper="h1"
+
+          speed={50}
+
+          repeat={Infinity}
+
+          cursor={true}
+
           className="
-            mt-7
-            text-base
-            md:text-xl
-            text-gray-200
+            block
+            whitespace-nowrap
+            text-[14px]
+            xs:text-lg
+            sm:text-3xl
+            md:text-5xl
+            lg:text-6xl
+            font-extrabold
+            leading-tight
+          "
+
+        />
+
+
+
+
+
+
+        {/* Texto de apoio */}
+
+        <p
+
+          className="
+            mt-6
             max-w-3xl
             mx-auto
+            text-sm
+            sm:text-base
+            md:text-xl
+            text-gray-200
           "
+
         >
+
           Faça a sua matrícula online de forma simples,
           rápida e segura. Prepare o seu futuro com o
           CEIPP Jerma.
+
         </p>
 
 
 
 
 
+
+
         {/* Botões */}
+
         <div
+
           className="
             mt-10
             flex
-            flex-col
-            sm:flex-row
+            flex-row
             justify-center
-            gap-5
+            items-center
+            gap-2
+            sm:gap-5
           "
+
         >
 
 
 
           <button
+
             className="
               flex
               items-center
               justify-center
-              gap-3
+              gap-2
               bg-red-600
               hover:bg-red-700
-              px-8
-              py-4
+              px-3
+              sm:px-8
+              py-3
+              sm:py-4
               rounded-full
               font-bold
-              text-lg
+              text-xs
+              sm:text-lg
               shadow-xl
               transition
               hover:scale-105
+              whitespace-nowrap
             "
+
           >
 
-            <ClipboardPen size={22}/>
+            <ClipboardPen
+              size={18}
+              className="sm:w-[22px] sm:h-[22px]"
+            />
 
             Fazer Inscrição
+
 
           </button>
 
@@ -178,34 +221,50 @@ export default function Hero() {
 
 
 
+
+
+
           <button
+
             className="
               flex
               items-center
               justify-center
-              gap-3
+              gap-2
               border-2
               border-white
               hover:bg-white
               hover:text-purple-800
-              px-8
-              py-4
+              px-3
+              sm:px-8
+              py-3
+              sm:py-4
               rounded-full
               font-bold
-              text-lg
+              text-xs
+              sm:text-lg
               transition
+              whitespace-nowrap
             "
+
           >
 
-            <Search size={22}/>
+
+            <Search
+              size={18}
+              className="sm:w-[22px] sm:h-[22px]"
+            />
+
 
             Consultar Inscrição
+
 
           </button>
 
 
 
         </div>
+
 
 
 
