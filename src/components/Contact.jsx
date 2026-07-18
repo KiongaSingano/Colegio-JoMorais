@@ -1,47 +1,50 @@
-import {
+import { 
   PhoneCall,
-  MailCheck,
-  MapPinned,
+  Mail,
+  MapPin,
   Clock3,
-  SendHorizontal
+  Send
 } from "lucide-react";
 
 
 export default function Contact(){
 
 
-const contactos=[
+const contactos = [
 
 {
 titulo:"Telefone",
 texto:"+244 945 287 061",
 icon:<PhoneCall size={28}/>,
-bg:"bg-green-100",
-color:"text-green-700"
+cor:"bg-green-100",
+iconColor:"text-green-700"
 },
+
 
 {
 titulo:"Email",
 texto:"colegiojomorais@gmail.com",
-icon:<MailCheck size={28}/>,
-bg:"bg-yellow-100",
-color:"text-yellow-600"
+icon:<Mail size={28}/>,
+cor:"bg-yellow-100",
+iconColor:"text-yellow-600"
 },
+
 
 {
 titulo:"Localização",
 texto:"1º de Maio, Zona do Zangoio, Rua 3x3, Cabinda - Angola",
-icon:<MapPinned size={28}/>,
-bg:"bg-green-100",
-color:"text-green-700"
+icon:<MapPin size={28}/>,
+cor:"bg-green-100",
+iconColor:"text-green-700"
 },
+
 
 {
 titulo:"Horário",
 texto:"Segunda - Sexta | 07h00 - 18h00",
 icon:<Clock3 size={28}/>,
-bg:"bg-yellow-100",
-color:"text-yellow-600"
+cor:"bg-yellow-100",
+iconColor:"text-yellow-600"
 }
 
 ];
@@ -50,7 +53,8 @@ color:"text-yellow-600"
 
 
 
-return(
+return (
+
 
 <section
 
@@ -62,6 +66,7 @@ px-4
 sm:px-6
 bg-gray-50
 "
+
 
 >
 
@@ -77,7 +82,7 @@ mx-auto
 
 
 
-{/* Título */}
+{/* Cabeçalho */}
 
 <div
 
@@ -95,8 +100,8 @@ className="
 text-3xl
 sm:text-4xl
 md:text-5xl
-font-black
-text-green-800
+font-extrabold
+text-green-700
 "
 
 >
@@ -111,15 +116,18 @@ Contactos
 
 className="
 mt-4
-text-gray-600
 max-w-2xl
 mx-auto
+text-gray-600
+text-sm
+sm:text-base
 "
 
 >
 
-Entre em contacto com o CEIPP JoMorais para
-informações sobre inscrições, cursos e serviços.
+Entre em contacto com o CEIPP JoMorais
+para obter informações sobre inscrições,
+cursos e serviços.
 
 </p>
 
@@ -128,9 +136,9 @@ informações sobre inscrições, cursos e serviços.
 <div
 
 className="
-w-24
+w-20
 h-1
-bg-yellow-400
+bg-yellow-500
 mx-auto
 mt-5
 rounded-full
@@ -147,12 +155,15 @@ rounded-full
 
 
 
+
+
 <div
 
 className="
 grid
 lg:grid-cols-2
 gap-10
+items-start
 "
 
 >
@@ -162,7 +173,7 @@ gap-10
 
 
 
-{/* Informações */}
+{/* Informações de contacto */}
 
 
 <div
@@ -175,6 +186,7 @@ space-y-5
 
 
 {
+
 contactos.map((item,index)=>(
 
 
@@ -183,9 +195,8 @@ contactos.map((item,index)=>(
 key={index}
 
 className="
-group
 bg-white
-rounded-3xl
+rounded-2xl
 p-6
 shadow-md
 border
@@ -205,21 +216,23 @@ duration-300
 <div
 
 className={`
-w-16
-h-16
+w-14
+h-14
 rounded-2xl
 flex
 items-center
 justify-center
-${item.bg}
-group-hover:scale-110
-transition
+${item.cor}
 `}
 
 >
 
 
-<span className={item.color}>
+<span
+
+className={item.iconColor}
+
+>
 
 {item.icon}
 
@@ -231,13 +244,16 @@ transition
 
 
 
+
+
+
 <div>
 
 
 <h3
 
 className="
-font-extrabold
+font-bold
 text-green-800
 text-lg
 "
@@ -275,11 +291,12 @@ mt-1
 
 ))
 
+
 }
 
 
-</div>
 
+</div>
 
 
 
@@ -299,7 +316,7 @@ bg-white
 rounded-3xl
 shadow-xl
 p-6
-sm:p-10
+sm:p-8
 border
 border-gray-100
 "
@@ -311,8 +328,8 @@ border-gray-100
 
 className="
 text-2xl
-font-black
-text-green-800
+font-bold
+text-green-700
 mb-6
 "
 
@@ -321,6 +338,7 @@ mb-6
 Envie uma mensagem
 
 </h3>
+
 
 
 
@@ -334,11 +352,32 @@ space-y-5
 >
 
 
+
+<div>
+
+
+<label
+
+className="
+block
+text-sm
+font-semibold
+text-gray-700
+mb-2
+"
+
+>
+
+Nome completo
+
+</label>
+
+
 <input
 
 type="text"
 
-placeholder="Nome completo"
+placeholder="Digite o seu nome"
 
 className="
 w-full
@@ -348,21 +387,47 @@ rounded-xl
 border
 border-gray-200
 outline-none
-focus:border-green-600
 focus:ring-2
-focus:ring-green-100
+focus:ring-green-600
 transition
 "
 
 />
 
+
+</div>
+
+
+
+
+
+
+
+<div>
+
+
+<label
+
+className="
+block
+text-sm
+font-semibold
+text-gray-700
+mb-2
+"
+
+>
+
+Email
+
+</label>
 
 
 <input
 
 type="email"
 
-placeholder="Email"
+placeholder="Digite o seu email"
 
 className="
 w-full
@@ -372,23 +437,47 @@ rounded-xl
 border
 border-gray-200
 outline-none
-focus:border-green-600
 focus:ring-2
-focus:ring-green-100
+focus:ring-green-600
 transition
 "
 
 />
 
 
+</div>
 
+
+
+
+
+
+
+<div>
+
+
+<label
+
+className="
+block
+text-sm
+font-semibold
+text-gray-700
+mb-2
+"
+
+>
+
+Telefone
+
+</label>
 
 
 <input
 
-type="tel"
+type="text"
 
-placeholder="Telefone"
+placeholder="Digite o seu contacto"
 
 className="
 w-full
@@ -398,16 +487,41 @@ rounded-xl
 border
 border-gray-200
 outline-none
-focus:border-green-600
 focus:ring-2
-focus:ring-green-100
+focus:ring-green-600
 transition
 "
 
 />
 
 
+</div>
 
+
+
+
+
+
+
+
+<div>
+
+
+<label
+
+className="
+block
+text-sm
+font-semibold
+text-gray-700
+mb-2
+"
+
+>
+
+Mensagem
+
+</label>
 
 
 
@@ -425,13 +539,15 @@ rounded-xl
 border
 border-gray-200
 outline-none
-focus:border-green-600
 focus:ring-2
-focus:ring-green-100
+focus:ring-green-600
 transition
 "
 
 ></textarea>
+
+
+</div>
 
 
 
@@ -445,7 +561,7 @@ type="submit"
 
 className="
 w-full
-py-4
+py-3
 rounded-xl
 bg-green-700
 hover:bg-green-800
@@ -454,16 +570,18 @@ font-bold
 flex
 items-center
 justify-center
-gap-3
+gap-2
 shadow-lg
 hover:shadow-xl
-transition
+transition-all
+duration-300
 "
+
 
 >
 
 
-<SendHorizontal size={20}/>
+<Send size={20}/>
 
 Enviar Mensagem
 
@@ -472,10 +590,21 @@ Enviar Mensagem
 
 
 
+
+
+
 </form>
 
 
 
+
+</div>
+
+
+
+
+
+
 </div>
 
 
@@ -485,14 +614,12 @@ Enviar Mensagem
 
 </div>
 
-
-
-</div>
 
 
 </section>
 
 
 )
+
 
 }
