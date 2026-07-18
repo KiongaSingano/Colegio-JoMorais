@@ -6,48 +6,69 @@ import { motion, AnimatePresence } from "framer-motion";
 const cursos = [
 
 {
+titulo:"Análises Clínicas",
+descricao:
+"Formação na área da saúde com conhecimentos em laboratório, análises biológicas, técnicas laboratoriais e diagnóstico clínico."
+},
+
+
+{
+titulo:"Enfermagem Geral",
+descricao:
+"Preparação de profissionais de saúde com conhecimentos em cuidados de enfermagem, assistência ao paciente e promoção da saúde."
+},
+
+
+{
 titulo:"Ciências Físicas e Biológicas",
 descricao:
-"Formação científica nas áreas de física, biologia e preparação para estudos superiores."
+"Formação científica abrangendo física, química, biologia e bases essenciais para estudos superiores e áreas científicas."
 },
+
 
 {
 titulo:"Ciências Económicas e Jurídicas",
 descricao:
-"Curso voltado para economia, gestão, direito e conhecimentos empresariais."
+"Curso orientado para economia, gestão, administração, direito e compreensão dos processos empresariais."
 },
 
-{
-titulo:"Electricidade",
-descricao:
-"Formação técnica em instalações elétricas, energia, manutenção e sistemas elétricos."
-},
 
 {
 titulo:"Informática",
 descricao:
-"Aprendizagem de programação, redes, sistemas operativos e tecnologias digitais."
+"Formação em tecnologias digitais, programação, redes de computadores, sistemas operativos e desenvolvimento tecnológico."
 },
 
-{
-titulo:"Desenho e Projecto",
-descricao:
-"Desenvolvimento de competências em desenho técnico e elaboração de projetos."
-},
 
 {
-titulo:"Gestão de Recursos Humanos",
+titulo:"Eletrónica e Telecomunicações",
 descricao:
-"Preparação para gestão de pessoas, recrutamento e organização empresarial."
+"Estudo de sistemas eletrónicos, comunicação, redes, equipamentos digitais e tecnologias de transmissão de informação."
 },
 
+
 {
-titulo:"Finanças",
+titulo:"Mecânica (Máquinas e Motores)",
 descricao:
-"Estudo de gestão financeira, contabilidade e administração de recursos."
+"Formação técnica em máquinas, motores, manutenção mecânica e funcionamento de sistemas industriais."
+},
+
+
+{
+titulo:"Eletrónica Industrial e Automação",
+descricao:
+"Preparação técnica em controlo industrial, sistemas automatizados, sensores, robótica e processos produtivos."
+},
+
+
+{
+titulo:"Petroquímica",
+descricao:
+"Formação voltada para processos petroquímicos, derivados do petróleo, indústria química e operações industriais."
 }
 
 ];
+
 
 
 
@@ -65,21 +86,19 @@ const [quantidade,setQuantidade]=useState(4);
 
 
 
-// Detectar tamanho da tela
-
 useEffect(()=>{
 
 
 function verificarTela(){
 
 
-if(window.innerWidth < 640){
+if(window.innerWidth < 480){
 
 setQuantidade(1);
 
 }
 
-else if(window.innerWidth < 1024){
+else if(window.innerWidth < 900){
 
 setQuantidade(2);
 
@@ -126,13 +145,10 @@ function avancar(){
 
 setDirecao(1);
 
-
-setInicio((prev)=>
-
-(prev + 1) % cursos.length
-
+setInicio(
+(prev)=>
+(prev+1)%cursos.length
 );
-
 
 }
 
@@ -145,13 +161,10 @@ function voltar(){
 
 setDirecao(-1);
 
-
-setInicio((prev)=>
-
-(prev - 1 + cursos.length) % cursos.length
-
+setInicio(
+(prev)=>
+(prev-1+cursos.length)%cursos.length
 );
-
 
 }
 
@@ -166,15 +179,9 @@ const cursosVisiveis=[];
 
 for(let i=0;i<quantidade;i++){
 
-
 cursosVisiveis.push(
-
-cursos[
-(inicio+i)%cursos.length
-]
-
+cursos[(inicio+i)%cursos.length]
 );
-
 
 }
 
@@ -184,8 +191,8 @@ cursos[
 
 
 
-return(
 
+return(
 
 <section
 
@@ -195,12 +202,11 @@ className="
 py-20
 px-4
 sm:px-6
-bg-gray-50
+bg-white
 overflow-hidden
 "
 
 >
-
 
 
 <div
@@ -213,13 +219,13 @@ mx-auto
 >
 
 
-
+{/* Cabeçalho */}
 
 <div
 
 className="
 text-center
-mb-12
+mb-14
 "
 
 >
@@ -231,8 +237,8 @@ className="
 text-3xl
 sm:text-4xl
 md:text-5xl
-font-extrabold
-text-purple-900
+font-black
+text-green-900
 "
 
 >
@@ -242,18 +248,35 @@ Cursos Disponíveis
 </h2>
 
 
+
 <p
 
 className="
 mt-4
 text-gray-600
+text-sm
+sm:text-base
 "
 
 >
 
-Conheça as formações disponíveis no CEIPP Jerma
+Conheça as formações disponíveis no CEIPP JoMorais
 
 </p>
+
+
+<div
+
+className="
+w-24
+h-1
+bg-yellow-400
+mx-auto
+mt-5
+rounded-full
+"
+
+></div>
 
 
 </div>
@@ -264,6 +287,8 @@ Conheça as formações disponíveis no CEIPP Jerma
 
 
 
+
+{/* Slider */}
 
 
 <div
@@ -278,8 +303,7 @@ gap-3
 
 
 
-
-
+{/* Anterior */}
 
 
 <button
@@ -287,19 +311,20 @@ gap-3
 onClick={voltar}
 
 className="
-flex
-shrink-0
 w-10
 h-10
 sm:w-12
 sm:h-12
+rounded-full
+bg-green-900
+text-yellow-400
+flex
 items-center
 justify-center
-rounded-full
-bg-purple-700
-text-white
-hover:bg-purple-900
+shadow-lg
+hover:bg-green-800
 transition
+shrink-0
 "
 
 >
@@ -316,27 +341,26 @@ transition
 
 
 
+
+{/* Cards */}
+
 <div
 
 className="
+flex-1
 grid
 grid-cols-1
 sm:grid-cols-2
 lg:grid-cols-4
-gap-4
-flex-1
+gap-5
 "
 
 >
 
 
-
 <AnimatePresence
-
 mode="popLayout"
-
 initial={false}
-
 >
 
 
@@ -345,76 +369,71 @@ initial={false}
 cursosVisiveis.map((curso)=>(
 
 
-
 <motion.div
-
 
 key={curso.titulo}
 
 
-
 initial={{
-
-x:direcao===1?80:-80,
-
+x:direcao===1?70:-70,
 opacity:0
-
 }}
-
 
 
 animate={{
-
 x:0,
-
 opacity:1
-
 }}
-
 
 
 exit={{
-
-x:direcao===1?-80:80,
-
+x:direcao===1?-70:70,
 opacity:0
-
 }}
 
 
-
 transition={{
-
-duration:0.35
-
+duration:.4
 }}
 
 
 
 className="
+group
 bg-white
-rounded-2xl
-shadow-lg
-p-5
+rounded-3xl
+p-6
+shadow-md
+border
+border-gray-100
 border-b-4
-border-red-600
-min-h-[250px]
+border-yellow-400
+hover:shadow-2xl
+hover:-translate-y-2
+transition-all
+duration-300
+min-h-[260px]
 "
 
 >
 
 
+{/* Icone */}
+
+
 <div
 
 className="
-w-12
-h-12
-rounded-full
-bg-purple-100
+w-14
+h-14
+rounded-2xl
+bg-green-100
 flex
 items-center
 justify-center
-mb-4
+mb-5
+group-hover:bg-green-900
+transition
 "
 
 >
@@ -422,9 +441,13 @@ mb-4
 
 <BookOpen
 
-size={26}
+size={30}
 
-className="text-purple-700"
+className="
+text-green-900
+group-hover:text-yellow-400
+transition
+"
 
 />
 
@@ -434,13 +457,15 @@ className="text-purple-700"
 
 
 
+
+
 <h3
 
 className="
 text-lg
-font-bold
-text-purple-900
-leading-tight
+font-extrabold
+text-green-900
+leading-snug
 "
 
 >
@@ -456,9 +481,9 @@ leading-tight
 <p
 
 className="
-mt-3
-text-sm
+mt-4
 text-gray-600
+text-sm
 leading-relaxed
 "
 
@@ -470,8 +495,8 @@ leading-relaxed
 
 
 
-</motion.div>
 
+</motion.div>
 
 
 ))
@@ -495,31 +520,34 @@ leading-relaxed
 
 
 
+
+{/* Próximo */}
+
+
 <button
 
 onClick={avancar}
 
 className="
-flex
-shrink-0
 w-10
 h-10
 sm:w-12
 sm:h-12
+rounded-full
+bg-green-900
+text-yellow-400
+flex
 items-center
 justify-center
-rounded-full
-bg-purple-700
-text-white
-hover:bg-purple-900
+shadow-lg
+hover:bg-green-800
 transition
+shrink-0
 "
 
 >
 
-
 <ChevronRight/>
-
 
 </button>
 
@@ -528,7 +556,10 @@ transition
 
 
 
+
 </div>
+
+
 
 
 

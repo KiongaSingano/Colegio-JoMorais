@@ -8,348 +8,324 @@ import {
   Phone,
   ClipboardEdit
 } from "lucide-react";
+
 import { Link } from "react-router-dom";
 import logo from "../assets/logo.png";
 
+export default function Navbar() {
+
+  const [menuOpen, setMenuOpen] = useState(false);
+
+  const links = [
+    {
+      nome: "Início",
+      icon: <Home size={18} />,
+      url: "#inicio"
+    },
+    {
+      nome: "Cursos",
+      icon: <BookOpen size={18} />,
+      url: "#cursos"
+    },
+    {
+      nome: "Sobre",
+      icon: <Users size={18} />,
+      url: "#sobre"
+    },
+    {
+      nome: "Contactos",
+      icon: <Phone size={18} />,
+      url: "#contactos"
+    }
+  ];
+
+  return (
+
+    <nav
+      className="
+      fixed
+      top-0
+      left-0
+      w-full
+      z-50
+      bg-green-900/95
+      backdrop-blur-lg
+      shadow-xl
+      border-b
+      border-green-700/40
+      "
+    >
+
+      <div
+        className="
+        max-w-7xl
+        mx-auto
+        px-4
+        sm:px-6
+        lg:px-8
+        py-3
+        flex
+        items-center
+        justify-between
+        "
+      >
+
+        {/* Logo */}
+
+        <div
+          className="
+          flex
+          items-center
+          gap-3
+          "
+        >
+
+          <img
+            src={logo}
+            alt="CEIPP JoMorais"
+            className="
+            w-14
+            h-14
+            md:w-16
+            md:h-16
+            object-contain
+            "
+          />
+
+          <div>
+
+            <h1
+              className="
+              text-lg
+              sm:text-xl
+              md:text-2xl
+              font-extrabold
+              text-white
+              leading-none
+              "
+            >
+
+              CEIPP
+
+              <span className="text-yellow-400">
+                {" "}JoMorais
+              </span>
+
+            </h1>
+
+            <p
+              className="
+              text-[11px]
+              sm:text-xs
+              text-green-100
+              "
+            >
+              Apostando na Educação Progressiva
+            </p>
+
+          </div>
 
-export default function Navbar(){
+        </div>
+
+        {/* Desktop */}
+
+        <div
+          className="
+          hidden
+          md:flex
+          items-center
+          gap-8
+          "
+        >
+
+          {
+            links.map((link, index) => (
 
-const [menuOpen,setMenuOpen] = useState(false);
+              <a
 
+                key={index}
 
-const links = [
+                href={link.url}
 
-{
-nome:"Início",
-icon:<Home size={18}/>,
-url:"#inicio"
-},
+                className="
+                group
+                relative
+                flex
+                items-center
+                gap-2
+                text-green-100
+                hover:text-white
+                font-medium
+                transition
+                "
 
-{
-nome:"Cursos",
-icon:<BookOpen size={18}/>,
-url:"#cursos"
-},
+              >
 
-{
-nome:"Sobre",
-icon:<Users size={18}/>,
-url:"#sobre"
-},
+                {link.icon}
 
-{
-nome:"Contactos",
-icon:<Phone size={18}/>,
-url:"#contactos"
-}
+                <span>
+                  {link.nome}
+                </span>
 
-];
+                <span
+                  className="
+                  absolute
+                  left-1/2
+                  -translate-x-1/2
+                  bottom-[-8px]
+                  h-[3px]
+                  w-0
+                  rounded-full
+                  bg-yellow-400
+                  transition-all
+                  duration-300
+                  group-hover:w-[70%]
+                  "
+                ></span>
 
+              </a>
 
+            ))
+          }
 
-return(
+          <Link
 
-<nav
-className="
-fixed
-top-0
-left-0
-w-full
-z-50
-bg-purple-950/95
-backdrop-blur-md
-shadow-lg
-"
->
+            to="/inscricao"
 
+            className="
+            flex
+            items-center
+            gap-2
+            bg-yellow-400
+            text-green-950
+            px-6
+            py-3
+            rounded-full
+            font-bold
+            hover:bg-yellow-300
+            transition
+            shadow-lg
+            hover:scale-105
+            "
 
-<div
-className="
-max-w-7xl
-mx-auto
-px-6
-py-3
-flex
-items-center
-justify-between
-"
->
+          >
 
+            <ClipboardEdit size={18} />
 
+            Matrícula
 
-{/* Logo */}
+          </Link>
 
-<div
-className="
-flex
-items-center
-gap-3
-"
->
+        </div>
 
+        {/* Mobile */}
 
-<img
+        <button
 
-src={logo}
+          onClick={() => setMenuOpen(!menuOpen)}
 
-alt="CEIPP Jerma"
+          className="
+          md:hidden
+          text-white
+          "
 
-className="
-w-16
-h-16
-object-contain
-"
+        >
 
-/>
+          {
+            menuOpen
+              ? <X size={30} />
+              : <Menu size={30} />
+          }
 
+        </button>
 
-<div>
+      </div>
 
-<h1
-className="
-text-xl
-md:text-2xl
-font-extrabold
-text-white
-"
->
+      {/* Menu Mobile */}
 
-CEIPP
-<span className="text-red-500">
- Jerma
-</span>
+      {
 
-</h1>
+        menuOpen && (
 
+          <div
+            className="
+            md:hidden
+            bg-green-900
+            border-t
+            border-green-700
+            px-6
+            py-5
+            "
+          >
 
-<p
-className="
-text-xs
-text-gray-300
-"
->
+            <div className="space-y-4">
 
-Aposta Pelo Ensino de Qualidade
+              {
 
-</p>
+                links.map((link, index) => (
 
+                  <a
 
-</div>
+                    key={index}
 
+                    href={link.url}
 
-</div>
+                    className="
+                    flex
+                    items-center
+                    gap-3
+                    text-green-100
+                    hover:text-yellow-400
+                    transition
+                    "
 
+                  >
 
+                    {link.icon}
 
+                    {link.nome}
 
+                  </a>
 
+                ))
 
+              }
 
-{/* Menu Desktop */}
+              <Link
 
-<div
-className="
-hidden
-md:flex
-items-center
-gap-8
-"
->
+                to="/inscricao"
 
+                className="
+                mt-6
+                flex
+                justify-center
+                items-center
+                gap-2
+                bg-yellow-400
+                text-green-950
+                py-3
+                rounded-xl
+                font-bold
+                "
 
-{
+              >
 
-links.map((link,index)=>(
+                <ClipboardEdit size={18} />
 
+                Fazer Matrícula
 
-<a
+              </Link>
 
-key={index}
+            </div>
 
-href={link.url}
+          </div>
 
-className="
-group
-relative
-flex
-items-center
-gap-2
-text-gray-200
-hover:text-white
-transition
-"
+        )
 
->
+      }
 
+    </nav>
 
-{link.icon}
-
-<span>
-{link.nome}
-</span>
-
-
-
-{/* Barra inferior */}
-
-<span
-
-className="
-absolute
-left-0
-bottom-[-6px]
-h-[2px]
-w-0
-bg-red-500
-transition-all
-duration-300
-group-hover:w-full
-"
-
-></span>
-
-
-
-</a>
-
-
-))
-
-}
-
-
-
-
-
-<Link
-
-to="/inscricao"
-
-className="
-flex
-items-center
-gap-2
-bg-red-600
-px-5
-py-2
-rounded-full
-font-semibold
-hover:bg-red-700
-transition
-shadow-md
-"
-
->
-
-<ClipboardEdit size={18}/>
-
-Matrícula
-
-</Link>
-
-
-
-</div>
-
-
-
-
-
-
-
-
-
-{/* Mobile */}
-
-<button
-
-onClick={()=>setMenuOpen(!menuOpen)}
-
-className="
-md:hidden
-text-white
-"
-
->
-
-{
-menuOpen ?
-<X size={30}/>
-:
-<Menu size={30}/>
-}
-
-</button>
-
-
-
-</div>
-
-
-
-
-
-
-
-{/* Menu mobile */}
-
-{
-
-menuOpen && (
-
-<div
-className="
-md:hidden
-bg-purple-900
-px-6
-py-5
-space-y-4
-"
->
-
-
-{
-
-links.map((link,index)=>(
-
-
-<a
-
-key={index}
-
-href={link.url}
-
-className="
-flex
-items-center
-gap-3
-text-white
-"
-
->
-
-{link.icon}
-
-{link.nome}
-
-</a>
-
-
-))
-
-}
-
-
-</div>
-
-)
-
-}
-
-
-</nav>
-
-
-)
+  );
 
 }

@@ -14,64 +14,79 @@ export default function Footer(){
 
 return (
 
-<footer className="
-bg-purple-950
+<footer
+className="
+bg-green-950
 text-white
-py-10
-">
+py-12
+"
+>
 
 
-<div className="
+<div
+className="
 max-w-7xl
 mx-auto
 px-4
 sm:px-6
 lg:px-8
-">
+"
+>
 
 
-<div className="
+<div
+className="
 grid
 grid-cols-1
 sm:grid-cols-2
 lg:grid-cols-3
-gap-8
-">
+gap-10
+"
+>
 
 
-
-{/* Informações */}
+{/* Instituição */}
 
 <div>
 
 
-<h2 className="
+<h2
+className="
 text-3xl
 font-extrabold
-">
+"
+>
 
 CEIPP
 
-<span className="
-text-red-500
-">
+<span
+className="
+text-yellow-400
+"
+>
 
- Jerma
+ JoMorais
 
 </span>
+
 
 </h2>
 
 
 
-<p className="
+<p
+className="
 mt-4
-text-gray-300
+text-green-100
 leading-relaxed
-">
+text-sm
+sm:text-base
+"
+>
 
 Sistema de Inscrições e Matrículas Online.
-Educação de qualidade para o futuro dos estudantes.
+Apostando na Educação Progressiva e preparando
+estudantes para o futuro.
 
 </p>
 
@@ -89,60 +104,88 @@ Educação de qualidade para o futuro dos estudantes.
 <div>
 
 
-<h3 className="
+<h3
+className="
 text-xl
 font-bold
-text-red-400
-mb-4
-">
+text-yellow-400
+mb-5
+"
+>
 
 Links rápidos
 
 </h3>
 
 
-<div className="
+
+<div
+className="
 space-y-3
-text-gray-300
-">
+text-green-100
+"
+>
 
 
-<a 
+<a
 href="#inicio"
-className="block hover:text-white transition"
+className="
+block
+hover:text-yellow-400
+transition
+"
 >
 Início
 </a>
 
 
-<a 
+
+<a
 href="#sobre"
-className="block hover:text-white transition"
+className="
+block
+hover:text-yellow-400
+transition
+"
 >
 Sobre
 </a>
 
 
-<a 
+
+
+<a
 href="#cursos"
-className="block hover:text-white transition"
+className="
+block
+hover:text-yellow-400
+transition
+"
 >
 Cursos
 </a>
 
 
-<a 
+
+
+<a
 href="#contactos"
-className="block hover:text-white transition"
+className="
+block
+hover:text-yellow-400
+transition
+"
 >
 Contactos
 </a>
 
 
+
 </div>
 
 
 </div>
+
 
 
 
@@ -156,12 +199,14 @@ Contactos
 <div>
 
 
-<h3 className="
+<h3
+className="
 text-xl
 font-bold
-text-red-400
-mb-4
-">
+text-yellow-400
+mb-5
+"
+>
 
 Contactos
 
@@ -169,20 +214,30 @@ Contactos
 
 
 
-
-<div className="
+<div
+className="
 space-y-4
-text-gray-300
-">
+text-green-100
+text-sm
+sm:text-base
+"
+>
 
 
-<p className="
+
+<p
+className="
 flex
 items-center
 gap-3
-">
+"
+>
 
-<FaPhone className="text-red-400"/>
+<FaPhone
+className="
+text-yellow-400
+"
+/>
 
 +244 946 614 043
 
@@ -190,31 +245,48 @@ gap-3
 
 
 
-<p className="
+
+
+<p
+className="
 flex
 items-center
 gap-3
-">
+"
+>
 
-<FaEnvelope className="text-red-400"/>
+<FaEnvelope
+className="
+text-yellow-400
+"
+/>
 
-ceippjerma@gmail.com
+colegiojomorais@gmail.com
 
 </p>
 
 
 
-<p className="
+
+
+<p
+className="
 flex
 items-center
 gap-3
-">
+"
+>
 
-<FaMapMarkerAlt className="text-red-400"/>
+<FaMapMarkerAlt
+className="
+text-yellow-400
+"
+/>
 
-1º de Maio, Cabinda - Angola
+Angola
 
 </p>
+
 
 
 </div>
@@ -227,18 +299,21 @@ gap-3
 
 {/* Redes sociais */}
 
-<div className="
+<div
+className="
 flex
 gap-3
-mt-6
-">
+mt-7
+"
+>
+
 
 
 <a
 href="#"
 className="
-w-10
-h-10
+w-11
+h-11
 rounded-full
 bg-white/10
 flex
@@ -255,11 +330,13 @@ transition
 
 
 
+
+
 <a
 href="#"
 className="
-w-10
-h-10
+w-11
+h-11
 rounded-full
 bg-white/10
 flex
@@ -277,11 +354,12 @@ transition
 
 
 
+
 <a
 href="#"
 className="
-w-10
-h-10
+w-11
+h-11
 rounded-full
 bg-white/10
 flex
@@ -299,11 +377,12 @@ transition
 
 
 
+
 <a
 href="#"
 className="
-w-10
-h-10
+w-11
+h-11
 rounded-full
 bg-white/10
 flex
@@ -320,8 +399,6 @@ transition
 
 
 
-</div>
-
 
 </div>
 
@@ -338,24 +415,39 @@ transition
 
 
 
-<div className="
+
+{/* Rodapé inferior */}
+
+<div
+className="
 border-t
 border-white/20
-mt-8
-pt-5
+mt-10
+pt-6
 text-center
-text-gray-400
-text-sm
-">
+text-green-200
+text-xs
+sm:text-sm
+"
+>
 
-© {new Date().getFullYear()} Complexo Escola e Instituto Politécnico Privado Jerma.
+
+© {new Date().getFullYear()} 
+Complexo Escola e Instituto Politécnico Privado JoMorais.
+<br/>
+
 Todos os direitos reservados.
+
 
 </div>
 
+
+
+</div>
 
 
 </footer>
+
 
 )
 

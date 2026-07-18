@@ -32,13 +32,14 @@ mx-auto
 
 
 
+
 {/* Título */}
 
 <div
 
 className="
 text-center
-mb-12
+mb-14
 "
 
 >
@@ -51,12 +52,12 @@ text-3xl
 sm:text-4xl
 md:text-5xl
 font-extrabold
-text-purple-900
+text-green-800
 "
 
 >
 
-Sobre o CEIPP Jerma
+Sobre o CEIPP JoMorais
 
 </h2>
 
@@ -76,8 +77,9 @@ leading-relaxed
 
 >
 
-Uma instituição comprometida com a formação académica,
-profissional e humana dos seus estudantes.
+Uma instituição dedicada à educação progressiva,
+formando estudantes preparados para os desafios
+académicos, profissionais e sociais.
 
 </p>
 
@@ -92,7 +94,8 @@ profissional e humana dos seus estudantes.
 
 
 
-{/* Parte principal */}
+
+{/* Conteúdo principal */}
 
 
 <div
@@ -100,8 +103,8 @@ profissional e humana dos seus estudantes.
 className="
 grid
 md:grid-cols-2
-gap-8
-lg:gap-12
+gap-10
+lg:gap-14
 items-center
 "
 
@@ -111,9 +114,32 @@ items-center
 
 
 
+
 {/* Imagem */}
 
-<div>
+
+<div
+
+className="
+relative
+"
+
+>
+
+
+<div
+
+className="
+absolute
+-rotate-3
+inset-0
+bg-yellow-400
+rounded-3xl
+"
+
+></div>
+
+
 
 
 <img
@@ -122,18 +148,20 @@ items-center
 src={escola}
 
 
-alt="Colégio Jerma"
+alt="CEIPP JoMorais"
 
 
 className="
+relative
 w-full
 h-[280px]
 sm:h-[350px]
-lg:h-[420px]
+lg:h-[430px]
 object-cover
 rounded-3xl
-shadow-xl
+shadow-2xl
 "
+
 
 
 
@@ -142,6 +170,7 @@ shadow-xl
 
 
 </div>
+
 
 
 
@@ -162,13 +191,13 @@ className="
 text-2xl
 sm:text-3xl
 font-bold
-text-purple-900
-mb-4
+text-green-800
+mb-5
 "
 
 >
 
-Educação para transformar futuros
+Educação para transformar gerações
 
 </h3>
 
@@ -187,13 +216,14 @@ leading-relaxed
 >
 
 
-O CEIPP Jerma tem como compromisso oferecer
-uma educação de qualidade, preparando os estudantes
-com conhecimentos, competências e valores necessários
-para enfrentar os desafios do futuro.
+O CEIPP JoMorais aposta numa educação moderna
+e progressiva, proporcionando aos estudantes
+conhecimentos, competências e valores essenciais
+para construir um futuro melhor.
 
 
 </p>
+
 
 
 
@@ -204,8 +234,8 @@ para enfrentar os desafios do futuro.
 className="
 mt-6
 border-l-4
-border-red-600
-pl-4
+border-yellow-500
+pl-5
 "
 
 >
@@ -214,16 +244,16 @@ pl-4
 <p
 
 className="
+italic
 text-gray-700
 text-sm
 sm:text-base
-italic
 "
 
 >
 
-"Apostamos no ensino de qualidade para construir
-uma nova geração preparada para o futuro."
+"Apostando na Educação Progressiva
+para preparar os líderes do amanhã."
 
 </p>
 
@@ -235,6 +265,8 @@ uma nova geração preparada para o futuro."
 
 
 </div>
+
+
 
 
 
@@ -261,7 +293,7 @@ grid-cols-1
 sm:grid-cols-2
 lg:grid-cols-3
 gap-6
-mt-14
+mt-16
 "
 
 >
@@ -273,18 +305,19 @@ mt-14
 
 
 
-{/* Card */}
+
+{/* Missão */}
+
 
 <div
 
 className="
 bg-gray-50
-rounded-2xl
+rounded-3xl
 p-6
-shadow-md
+shadow-lg
 border-t-4
-border-red-600
-hover:shadow-xl
+border-yellow-500
 hover:-translate-y-2
 transition
 "
@@ -298,11 +331,11 @@ className="
 w-12
 h-12
 rounded-full
-bg-red-100
+bg-yellow-100
 flex
 items-center
 justify-center
-mb-4
+mb-5
 "
 
 >
@@ -310,9 +343,11 @@ mb-4
 
 <Target
 
-size={26}
+size={27}
 
-className="text-red-600"
+className="
+text-yellow-600
+"
 
 />
 
@@ -321,12 +356,13 @@ className="text-red-600"
 
 
 
+
 <h3
 
 className="
 text-xl
 font-bold
-text-purple-900
+text-green-800
 "
 
 >
@@ -350,9 +386,10 @@ leading-relaxed
 >
 
 
-Proporcionar uma educação de excelência,
-formando cidadãos responsáveis, preparados
-e capazes de contribuir para a sociedade.
+Oferecer uma educação de excelência,
+formando cidadãos responsáveis,
+criativos e preparados para contribuir
+positivamente na sociedade.
 
 
 </p>
@@ -371,21 +408,23 @@ e capazes de contribuir para a sociedade.
 
 {/* Visão */}
 
+
+
 <div
 
 className="
 bg-gray-50
-rounded-2xl
+rounded-3xl
 p-6
-shadow-md
+shadow-lg
 border-t-4
-border-purple-700
-hover:shadow-xl
+border-green-700
 hover:-translate-y-2
 transition
 "
 
 >
+
 
 
 <div
@@ -394,11 +433,11 @@ className="
 w-12
 h-12
 rounded-full
-bg-purple-100
+bg-green-100
 flex
 items-center
 justify-center
-mb-4
+mb-5
 "
 
 >
@@ -406,9 +445,11 @@ mb-4
 
 <Eye
 
-size={26}
+size={27}
 
-className="text-purple-700"
+className="
+text-green-700
+"
 
 />
 
@@ -418,12 +459,13 @@ className="text-purple-700"
 
 
 
+
 <h3
 
 className="
 text-xl
 font-bold
-text-purple-900
+text-green-800
 "
 
 >
@@ -448,8 +490,10 @@ leading-relaxed
 >
 
 
-Ser uma instituição de referência no ensino,
-inovação e desenvolvimento integral dos estudantes.
+Ser uma instituição de referência,
+reconhecida pela inovação,
+qualidade de ensino e desenvolvimento
+integral dos estudantes.
 
 
 </p>
@@ -468,16 +512,17 @@ inovação e desenvolvimento integral dos estudantes.
 
 {/* Valores */}
 
+
+
 <div
 
 className="
 bg-gray-50
-rounded-2xl
+rounded-3xl
 p-6
-shadow-md
+shadow-lg
 border-t-4
-border-red-600
-hover:shadow-xl
+border-yellow-500
 hover:-translate-y-2
 transition
 "
@@ -491,11 +536,11 @@ className="
 w-12
 h-12
 rounded-full
-bg-red-100
+bg-yellow-100
 flex
 items-center
 justify-center
-mb-4
+mb-5
 "
 
 >
@@ -503,9 +548,11 @@ mb-4
 
 <Heart
 
-size={26}
+size={27}
 
-className="text-red-600"
+className="
+text-yellow-600
+"
 
 />
 
@@ -520,7 +567,7 @@ className="text-red-600"
 className="
 text-xl
 font-bold
-text-purple-900
+text-green-800
 "
 
 >
@@ -545,9 +592,9 @@ leading-relaxed
 >
 
 
-Disciplina, respeito, responsabilidade,
-excelência, inovação, ética e compromisso
-com a comunidade.
+Respeito, disciplina, inovação,
+responsabilidade, ética e compromisso
+com uma educação transformadora.
 
 
 </p>
@@ -564,7 +611,6 @@ com a comunidade.
 
 
 </div>
-
 
 
 

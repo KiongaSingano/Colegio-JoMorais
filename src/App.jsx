@@ -1,10 +1,11 @@
-import { 
+import {
   BrowserRouter,
   Routes,
-  Route
+  Route,
+  useLocation
 } from "react-router-dom";
 
-import { useState } from "react";
+import { useEffect, useState } from "react";
 
 
 import Navbar from "./components/Navbar";
@@ -22,10 +23,43 @@ import Inscricao from "./pages/Inscricao";
 
 
 
+
+
+function ScrollToTop(){
+
+const {pathname}=useLocation();
+
+
+useEffect(()=>{
+
+window.scrollTo({
+top:0,
+behavior:"smooth"
+});
+
+
+},[pathname]);
+
+
+return null;
+
+}
+
+
+
+
+
+
+
+
+
 function PaginaInicial(){
 
 
-const [consultaAberta,setConsultaAberta] = useState(false);
+
+const [consultaAberta,setConsultaAberta]=useState(false);
+
+
 
 
 
@@ -39,15 +73,14 @@ return(
 
 
 
+<main>
+
+
 <Hero
 
-abrirConsulta={()=>
-setConsultaAberta(true)
-}
+abrirConsulta={()=>setConsultaAberta(true)}
 
 />
-
-
 
 
 
@@ -57,7 +90,16 @@ setConsultaAberta(true)
 
 <Contact/>
 
+
+</main>
+
+
+
+
+
 <Footer/>
+
+
 
 
 
@@ -71,15 +113,12 @@ consultaAberta &&
 
 <ConsultaInscricao
 
-fechar={()=>
-setConsultaAberta(false)
-}
+fechar={()=>setConsultaAberta(false)}
 
 />
 
 
 }
-
 
 
 
@@ -99,30 +138,28 @@ setConsultaAberta(false)
 
 
 
-export default function App(){
+function Layout(){
+
 
 
 return(
 
-<BrowserRouter>
+<>
+
+
+<ScrollToTop/>
 
 
 <Routes>
-
 
 
 <Route
 
 path="/"
 
-element={
-
-<PaginaInicial/>
-
-}
+element={<PaginaInicial/>}
 
 />
-
 
 
 
@@ -132,13 +169,10 @@ element={
 
 path="/inscricao"
 
-element={
-
-<Inscricao/>
-
-}
+element={<Inscricao/>}
 
 />
+
 
 
 
@@ -146,7 +180,36 @@ element={
 </Routes>
 
 
+</>
+
+
+)
+
+}
+
+
+
+
+
+
+
+
+
+export default function App(){
+
+
+
+return(
+
+
+<BrowserRouter>
+
+
+<Layout/>
+
+
 </BrowserRouter>
+
 
 
 )

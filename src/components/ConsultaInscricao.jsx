@@ -1,5 +1,13 @@
 import { useState } from "react";
-import { X, Search, Download, CheckCircle } from "lucide-react";
+import {
+  X,
+  Search,
+  Download,
+  CheckCircle,
+  CreditCard,
+  FileText,
+  Loader2
+} from "lucide-react";
 
 
 export default function ConsultaInscricao({ fechar }) {
@@ -10,6 +18,8 @@ const [tipoConsulta,setTipoConsulta] = useState("bi");
 const [valor,setValor] = useState("");
 
 const [resultado,setResultado] = useState(null);
+
+const [carregando,setCarregando] = useState(false);
 
 
 
@@ -31,32 +41,19 @@ fechar();
 
 
 
+async function consultarInscricao(){
 
-function consultarInscricao(){
 
-
-if(valor.trim()===""){
-
-return;
-
-}
+if(!valor.trim()) return;
 
 
 
-
-/*
- Futuramente:
-
- API
- |
- Backend
- |
- Neon PostgreSQL
-
-*/
+setCarregando(true);
 
 
-// Simulação temporária
+
+setTimeout(()=>{
+
 
 if(
 
@@ -84,6 +81,7 @@ ano:"2026/2027",
 
 data:"17/07/2026"
 
+
 });
 
 
@@ -103,6 +101,13 @@ erro:true
 
 
 
+setCarregando(false);
+
+
+},1200);
+
+
+
 }
 
 
@@ -111,7 +116,8 @@ erro:true
 
 
 
-return (
+return(
+
 
 
 <div
@@ -138,13 +144,11 @@ onClick={fecharConsulta}
 className="
 absolute
 inset-0
-bg-black/50
-backdrop-blur-md
+bg-black/40
+backdrop-blur-sm
 "
 
->
-
-</div>
+></div>
 
 
 
@@ -161,13 +165,14 @@ backdrop-blur-md
 className="
 relative
 z-10
-bg-white
 w-full
-max-w-md
+max-w-lg
+bg-white
 rounded-3xl
 shadow-2xl
-p-6
-animate-[fadeIn_.3s_ease]
+p-5
+sm:p-8
+animate-[scale_.25s_ease]
 "
 
 >
@@ -176,7 +181,7 @@ animate-[fadeIn_.3s_ease]
 
 
 
-{/* fechar */}
+
 
 <button
 
@@ -184,16 +189,23 @@ onClick={fecharConsulta}
 
 className="
 absolute
-right-5
-top-5
-text-gray-500
+top-4
+right-4
+w-10
+h-10
+rounded-full
+bg-gray-100
+flex
+items-center
+justify-center
+hover:bg-red-100
 hover:text-red-600
 transition
 "
 
 >
 
-<X size={26}/>
+<X size={22}/>
 
 </button>
 
@@ -209,21 +221,56 @@ transition
 !resultado || resultado.erro ?
 
 
-
 (
-
 
 
 <>
 
 
+
+<div className="
+text-center
+"
+>
+
+
+<div
+
+className="
+mx-auto
+w-16
+h-16
+rounded-full
+bg-green-100
+flex
+items-center
+justify-center
+"
+
+>
+
+
+<Search
+
+size={30}
+
+className="text-green-700"
+
+/>
+
+
+</div>
+
+
+
 <h2
 
 className="
+mt-4
 text-2xl
+sm:text-3xl
 font-extrabold
-text-purple-900
-text-center
+text-green-800
 "
 
 >
@@ -237,25 +284,32 @@ Consultar Inscrição
 <p
 
 className="
+mt-2
 text-gray-600
-text-center
-mt-3
+text-sm
 "
 
 >
 
-Consulte a sua inscrição usando o BI
-ou código de inscrição.
+Consulte a sua inscrição através do
+Bilhete de Identidade ou Código.
 
 </p>
 
 
+</div>
 
 
 
 
 
-<div className="mt-6">
+
+
+
+
+{/* Tipo */}
+
+<div className="mt-7">
 
 
 <label
@@ -267,13 +321,23 @@ text-gray-700
 
 >
 
-Método de consulta
+Pesquisar por
 
 </label>
 
 
 
+<div
+
+className="
+relative
+mt-2
+"
+
+>
+
 <select
+
 
 value={tipoConsulta}
 
@@ -285,16 +349,18 @@ setValor("");
 
 }}
 
+
 className="
 w-full
-mt-2
-border
+appearance-none
 rounded-xl
+border
+border-gray-200
 px-4
 py-3
 outline-none
 focus:ring-2
-focus:ring-purple-700
+focus:ring-green-600
 "
 
 >
@@ -314,8 +380,10 @@ Código de Inscrição
 </option>
 
 
-
 </select>
+
+
+</div>
 
 
 
@@ -328,6 +396,8 @@ Código de Inscrição
 
 
 
+
+{/* Campo */}
 
 <div className="mt-5">
 
@@ -352,7 +422,7 @@ tipoConsulta==="bi"
 
 :
 
-"Código de Inscrição"
+"Código da inscrição"
 
 
 }
@@ -363,13 +433,62 @@ tipoConsulta==="bi"
 
 
 
+
+
+<div
+
+className="
+relative
+mt-2
+"
+
+>
+
+
+{
+
+tipoConsulta==="bi"
+
+?
+
+<CreditCard
+
+className="
+absolute
+left-4
+top-3.5
+text-gray-400
+"
+
+/>
+
+:
+
+<FileText
+
+className="
+absolute
+left-4
+top-3.5
+text-gray-400
+"
+
+/>
+
+}
+
+
+
+
+
 <input
 
-type="text"
 
 value={valor}
 
+
 onChange={(e)=>setValor(e.target.value)}
+
 
 placeholder={
 
@@ -377,28 +496,32 @@ tipoConsulta==="bi"
 
 ?
 
-"Ex: 123456789"
+"Digite o número do BI"
 
 :
 
-"Ex: INS-2026-0001"
+"INS-2026-0001"
 
 }
 
+
 className="
 w-full
-mt-2
-border
 rounded-xl
-px-4
+border
+border-gray-200
 py-3
+pl-12
+pr-4
 outline-none
 focus:ring-2
-focus:ring-purple-700
+focus:ring-green-600
 "
 
 />
 
+
+</div>
 
 
 </div>
@@ -410,35 +533,68 @@ focus:ring-purple-700
 
 
 
+
 <button
+
 
 onClick={consultarInscricao}
 
+
+disabled={carregando}
+
+
 className="
+mt-7
 w-full
-mt-6
-bg-purple-900
-hover:bg-purple-950
+bg-green-700
+hover:bg-green-800
+disabled:opacity-70
 text-white
-py-3
+py-3.5
 rounded-xl
 font-bold
 flex
-justify-center
 items-center
+justify-center
 gap-2
 transition
+shadow-lg
 "
 
 >
 
 
+{
+
+carregando
+
+?
+
+<>
+
+<Loader2 className="animate-spin"/>
+
+A consultar...
+
+</>
+
+
+:
+
+<>
+
 <Search size={20}/>
 
 Consultar
 
+</>
+
+}
+
+
 
 </button>
+
 
 
 
@@ -451,12 +607,17 @@ Consultar
 resultado?.erro &&
 
 
-<p
+<div
 
 className="
-mt-4
-text-center
+mt-5
+bg-red-50
+border
+border-red-200
 text-red-600
+rounded-xl
+p-4
+text-center
 font-semibold
 "
 
@@ -464,7 +625,7 @@ font-semibold
 
 Nenhuma inscrição encontrada.
 
-</p>
+</div>
 
 
 }
@@ -481,12 +642,12 @@ Nenhuma inscrição encontrada.
 
 
 
-
 (
 
 
 
 <>
+
 
 
 <div
@@ -500,7 +661,7 @@ text-center
 
 <CheckCircle
 
-size={50}
+size={60}
 
 className="
 mx-auto
@@ -513,10 +674,10 @@ text-green-600
 <h2
 
 className="
+mt-3
 text-2xl
 font-extrabold
-text-purple-900
-mt-3
+text-green-800
 "
 
 >
@@ -534,7 +695,6 @@ Inscrição Encontrada
 
 
 
-
 <div
 
 className="
@@ -543,7 +703,8 @@ bg-gray-50
 rounded-2xl
 p-5
 space-y-3
-text-gray-700
+text-sm
+sm:text-base
 "
 
 >
@@ -572,7 +733,7 @@ text-gray-700
 
 <p>
 
-<strong>Ano Lectivo:</strong> {resultado.ano}
+<strong>Ano:</strong> {resultado.ano}
 
 </p>
 
@@ -585,16 +746,29 @@ text-gray-700
 
 
 
-<p>
+<div
+
+className="
+flex
+items-center
+"
+
+>
 
 <strong>Estado:</strong>
+
 
 <span
 
 className="
 ml-2
-text-green-600
+px-3
+py-1
+rounded-full
+bg-green-100
+text-green-700
 font-bold
+text-sm
 "
 
 >
@@ -604,11 +778,11 @@ font-bold
 </span>
 
 
-</p>
+</div>
+
 
 
 </div>
-
 
 
 
@@ -620,7 +794,9 @@ font-bold
 <div
 
 className="
-flex
+grid
+grid-cols-1
+sm:grid-cols-2
 gap-3
 mt-6
 "
@@ -632,28 +808,26 @@ mt-6
 <button
 
 className="
-flex-1
-bg-red-600
-hover:bg-red-700
+bg-yellow-500
+hover:bg-yellow-600
 text-white
 py-3
 rounded-xl
 font-bold
 flex
-justify-center
 items-center
+justify-center
 gap-2
 "
 
 >
 
-
 <Download size={18}/>
 
-Ficha PDF
-
+Baixar Ficha
 
 </button>
+
 
 
 
@@ -665,25 +839,20 @@ Ficha PDF
 onClick={fecharConsulta}
 
 className="
-flex-1
 border-2
-border-purple-900
-text-purple-900
+border-green-700
+text-green-700
 py-3
 rounded-xl
 font-bold
-hover:bg-purple-50
+hover:bg-green-50
 "
 
 >
 
-
 Fechar
 
-
 </button>
-
-
 
 
 </div>
@@ -693,8 +862,8 @@ Fechar
 </>
 
 
-)
 
+)
 
 
 }
@@ -707,6 +876,8 @@ Fechar
 </div>
 
 
+
 )
+
 
 }

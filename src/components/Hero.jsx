@@ -1,271 +1,174 @@
 import { TypeAnimation } from "react-type-animation";
 import { ClipboardPen, Search } from "lucide-react";
-import escola from "../assets/escola.jpg";
 import { Link } from "react-router-dom";
-
+import escola from "../assets/escola.jpg";
 
 export default function Hero({ abrirConsulta }) {
 
+  return (
 
-return (
+    <section
+      id="inicio"
+      className="
+      relative
+      min-h-[550px]
+      sm:min-h-[650px]
+      lg:min-h-screen
+      flex
+      items-center
+      justify-center
+      overflow-hidden
+      bg-cover
+      bg-center
+      pt-24
+      pb-10
+      "
+      style={{
+        backgroundImage: `url(${escola})`
+      }}
+    >
 
+      {/* Overlay */}
 
-<section
+      <div
+        className="
+        absolute
+        inset-0
+bg-gradient-to-b
+from-green-950/80
+via-green-900/70
+to-green-950/80
+        "
+      ></div>
 
-id="inicio"
+      {/* Conteúdo */}
 
-className="
-relative
-min-h-[520px]
-sm:min-h-[600px]
-md:min-h-screen
-flex
-items-center
-justify-center
-bg-center
-bg-cover
-overflow-hidden
-pt-20
-pb-8
-"
-
-style={{
-
-backgroundImage:`url(${escola})`
-
-}}
-
->
-
-
-
-{/* Camada escura */}
+      <div
+        className="
+        relative
+        z-10
+        max-w-6xl
+        w-full
+        mx-auto
+        px-4
+        sm:px-8
+        "
+      >
 
 <div
-
 className="
-absolute
-inset-0
-bg-black/60
-"
-
-></div>
-
-
-
-
-
-
-
-<div
-
-className="
-relative
-z-10
-w-full
-max-w-7xl
-mx-auto
-px-4
-sm:px-6
-md:px-10
 text-center
-text-white
-"
-
->
-
-
-
-
-
-{/* Inscrições abertas */}
-
-
-<div
-
-className="
-mb-5
-sm:mb-6
-flex
-justify-center
-"
-
->
-
-
-<span
-
-className="
-bg-red-600
-px-5
-py-2
+px-3
 sm:px-8
-sm:py-3
-rounded-full
-text-sm
-sm:text-lg
-md:text-2xl
-font-extrabold
-uppercase
-tracking-wide
-shadow-xl
-animate-pulse
+lg:px-14
 "
-
 >
 
-Inscrições Abertas
+          {/* Badge */}
 
-</span>
+          <div className="flex justify-center">
 
+            <span
+              className="
+              bg-yellow-400
+              text-green-900
+              px-5
+              py-2
+              sm:px-8
+              sm:py-3
+              rounded-full
+              font-extrabold
+              uppercase
+              tracking-widest
+              text-xs
+              sm:text-lg
+              shadow-xl
+              animate-pulse
+              "
+            >
 
-</div>
+              Matrículas Abertas
 
+            </span>
 
+          </div>
 
-
-
-
-
-
-
-{/* Texto animado */}
-
-
-<TypeAnimation
-
-
-sequence={[
-
-"Garanta já a sua vaga no CEIPP Jerma",
-
-3000,
-
-"",
-
-1000
-
-]}
+          {/* Nome */}
 
 
-wrapper="h1"
 
+          {/* Texto principal */}
 
-speed={50}
+          <TypeAnimation
 
+  sequence={[
+    "Garanta já a sua vaga no CEIPP JoMorais",
+    3500,
+    "",
+    1200
+  ]}
 
-repeat={Infinity}
+  wrapper="h1"
 
+  speed={45}
 
-cursor={true}
+  repeat={Infinity}
 
-
-className="
-
-block
-
-whitespace-nowrap
-
-text-base
-
-sm:text-3xl
-
-md:text-5xl
-
-lg:text-6xl
-
-font-extrabold
-
-leading-tight
-
-"
+  className="
+  mt-5
+  block
+  whitespace-nowrap
+  font-black
+  text-white
+  leading-tight
+  text-[14px]
+  sm:text-xl
+  md:text-4xl
+  lg:text-5xl
+  "
 
 />
+          {/* Slogan */}
 
 
 
+          {/* Descrição */}
 
+          <p
+            className="
+            mt-6
+            max-w-3xl
+            mx-auto
+            text-gray-100
+            leading-8
+            text-sm
+            sm:text-lg
+            "
+          >
 
+            Faça a sua matrícula totalmente online,
+            envie os seus documentos, acompanhe o estado
+            da inscrição e prepare o seu futuro com mais
+            rapidez, segurança e comodidade.
 
+          </p>
 
-
-
-{/* Texto apoio */}
-
-
-<p
-
-className="
-
-mt-5
-
-sm:mt-6
-
-max-w-3xl
-
-mx-auto
-
-text-sm
-
-sm:text-base
-
-md:text-xl
-
-text-gray-200
-
-"
-
->
-
-Faça a sua matrícula online de forma simples,
-rápida e segura. Prepare o seu futuro com o
-CEIPP Jerma.
-
-</p>
-
-
-
-
-
-
-
-
-
-{/* Botões */}
-
+ {/* Botões */}
 
 <div
-
 className="
-
 mt-8
-
-sm:mt-10
-
 flex
-
 flex-row
-
 justify-center
-
 items-center
-
 gap-2
-
 sm:gap-5
-
+w-full
 "
-
 >
 
-
-
-
-
-
-
 {/* Fazer inscrição */}
-
 
 <Link
 
@@ -275,31 +178,33 @@ className="
 flex
 items-center
 justify-center
-gap-2
-bg-red-600
-hover:bg-red-700
+gap-1
+bg-yellow-400
+text-green-950
 px-3
-sm:px-8
 py-3
+sm:px-8
 sm:py-4
 rounded-full
 font-bold
-text-xs
+text-[11px]
 sm:text-lg
 shadow-xl
-transition
 hover:scale-105
+transition
 whitespace-nowrap
 "
 
 >
 
+<ClipboardPen 
+size={16}
+className="sm:w-[22px] sm:h-[22px]"
+/>
 
-<ClipboardPen size={18}/>
-
-
+<span>
 Fazer Inscrição
-
+</span>
 
 </Link>
 
@@ -307,103 +212,122 @@ Fazer Inscrição
 
 
 
-
-
-
-
 {/* Consultar inscrição */}
-
 
 <button
 
-
 onClick={abrirConsulta}
 
-
 className="
-
 flex
-
 items-center
-
 justify-center
-
-gap-2
-
+gap-1
 border-2
-
 border-white
-
-hover:bg-white
-
-hover:text-purple-800
-
+text-white
 px-3
-
-sm:px-8
-
 py-3
-
+sm:px-8
 sm:py-4
-
 rounded-full
-
 font-bold
-
-text-xs
-
+text-[11px]
 sm:text-lg
-
+hover:bg-white
+hover:text-green-900
 transition
-
 whitespace-nowrap
-
 "
-
 
 >
 
-
 <Search
 
-size={18}
+size={16}
 
 className="sm:w-[22px] sm:h-[22px]"
 
 />
 
-
-
+<span>
 Consultar Inscrição
-
+</span>
 
 
 </button>
 
 
-
-
-
-
-
 </div>
 
+          {/* Estatísticas */}
 
+          <div
+            className="
+            mt-12
+            grid
+            grid-cols-3
+            gap-6
+            text-white
+            "
+          >
 
+            <div>
 
+              <h2 className="text-3xl font-black text-yellow-400">
 
+                +5
 
+              </h2>
 
-</div>
+              <p className="text-sm text-green-100">
 
+                Anos de Ensino
 
+              </p>
 
+            </div>
 
+            <div>
 
-</section>
+              <h2 className="text-3xl font-black text-yellow-400">
 
+                +5000
 
-)
+              </h2>
 
+              <p className="text-sm text-green-100">
+
+                Estudantes
+
+              </p>
+
+            </div>
+
+            <div>
+
+              <h2 className="text-3xl font-black text-yellow-400">
+
+                100%
+
+              </h2>
+
+              <p className="text-sm text-green-100">
+
+                Matrícula Online
+
+              </p>
+
+            </div>
+
+          </div>
+
+        </div>
+
+      </div>
+
+    </section>
+
+  );
 
 }

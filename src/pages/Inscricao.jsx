@@ -1,30 +1,48 @@
-import { ArrowLeft, User, Phone, GraduationCap, FileText } from "lucide-react";
+import {
+ArrowLeft,
+User,
+Phone,
+GraduationCap,
+FileText,
+Upload,
+CheckCircle
+} from "lucide-react";
+
 import { Link } from "react-router-dom";
 
 import logo from "../assets/logo.png";
 
 
+
 export default function Inscricao(){
 
 
-return (
+return(
+
 
 <section
+
 className="
 min-h-screen
-bg-gray-100
+bg-gray-50
 py-8
 px-4
 "
+
 >
 
 
 <div
+
 className="
 max-w-5xl
 mx-auto
 "
+
 >
+
+
+
 
 
 {/* Voltar */}
@@ -37,20 +55,22 @@ className="
 inline-flex
 items-center
 gap-2
-text-purple-900
+text-green-700
 font-semibold
-hover:text-red-600
+hover:text-yellow-600
 transition
-mb-8
+mb-6
 "
 
 >
 
-<ArrowLeft size={22}/>
+<ArrowLeft size={20}/>
 
-Voltar à Página Inicial
+Voltar para página inicial
 
 </Link>
+
+
 
 
 
@@ -60,14 +80,19 @@ Voltar à Página Inicial
 {/* Cabeçalho */}
 
 <div
+
 className="
 bg-white
 rounded-3xl
 shadow-xl
 p-6
+sm:p-8
 text-center
 mb-8
+border
+border-gray-100
 "
+
 >
 
 
@@ -75,26 +100,30 @@ mb-8
 
 src={logo}
 
-alt="CEIPP Jerma"
+alt="JoMorais"
 
 className="
 w-24
 h-24
-object-contain
 mx-auto
+object-contain
 mb-4
 "
 
 />
 
 
+
+
 <h1
+
 className="
 text-3xl
-md:text-4xl
+sm:text-4xl
 font-extrabold
-text-purple-900
+text-green-700
 "
+
 >
 
 Inscrição Online
@@ -102,16 +131,51 @@ Inscrição Online
 </h1>
 
 
+
+
 <p
+
 className="
 mt-3
 text-gray-600
 "
+
 >
 
-Complexo Escolar e Instituto Politécnico Privado Jerma
+CEIPP JoMorais
 
 </p>
+
+
+<p
+
+className="
+text-sm
+text-gray-500
+mt-1
+"
+
+>
+
+Apostando na Educação Progressiva
+
+</p>
+
+
+
+
+<div
+
+className="
+w-20
+h-1
+bg-yellow-500
+mx-auto
+mt-5
+rounded-full
+"
+
+></div>
 
 
 </div>
@@ -123,11 +187,25 @@ Complexo Escolar e Instituto Politécnico Privado Jerma
 
 
 
+
 <form
+
 className="
-space-y-8
+space-y-7
 "
+
 >
+
+
+
+
+
+
+
+
+
+{/* Função de estilo dos campos */}
+
 
 
 
@@ -137,35 +215,59 @@ space-y-8
 {/* Dados pessoais */}
 
 <div
+
 className="
 bg-white
 rounded-3xl
 shadow-lg
-p-6
+p-5
+sm:p-7
 "
+
 >
 
 
 <div
+
 className="
 flex
 items-center
 gap-3
 mb-6
 "
+
 >
 
-<User
-className="text-red-600"
-/>
+
+<div
+
+className="
+w-11
+h-11
+rounded-full
+bg-green-100
+flex
+items-center
+justify-center
+"
+
+>
+
+<User className="text-green-700"/>
+
+</div>
+
 
 
 <h2
+
 className="
-text-2xl
+text-xl
+sm:text-2xl
 font-bold
-text-purple-900
+text-green-800
 "
+
 >
 
 Dados Pessoais
@@ -179,70 +281,62 @@ Dados Pessoais
 
 
 
+
 <div
+
 className="
 grid
-md:grid-cols-2
-gap-5
+sm:grid-cols-2
+gap-4
 "
+
 >
 
 
 <input
 
-type="text"
-
 placeholder="Nome completo"
 
-className="
-input
-"
+className="campo"
 
 />
+
 
 
 <input
 
 type="date"
 
-className="
-input
-"
+className="campo"
 
 />
 
 
-<input
 
-type="text"
+<input
 
 placeholder="Bilhete de Identidade"
 
-className="
-input
-"
+className="campo"
 
 />
+
 
 
 <input
 
-type="text"
-
 placeholder="Naturalidade"
 
-className="
-input
-"
+className="campo"
 
 />
 
 
-</div>
-
 
 </div>
 
+
+</div>
 
 
 
@@ -254,36 +348,62 @@ input
 
 {/* Contactos */}
 
+
 <div
+
 className="
 bg-white
 rounded-3xl
 shadow-lg
-p-6
+p-5
+sm:p-7
 "
+
 >
 
 
 <div
+
 className="
 flex
 items-center
 gap-3
 mb-6
 "
+
 >
 
-<Phone
-className="text-red-600"
-/>
+
+<div
+
+className="
+w-11
+h-11
+rounded-full
+bg-yellow-100
+flex
+items-center
+justify-center
+"
+
+>
+
+<Phone className="text-yellow-600"/>
+
+</div>
+
+
 
 
 <h2
+
 className="
-text-2xl
+text-xl
+sm:text-2xl
 font-bold
-text-purple-900
+text-green-800
 "
+
 >
 
 Contactos
@@ -296,24 +416,23 @@ Contactos
 
 
 
+
 <div
+
 className="
 grid
-md:grid-cols-2
-gap-5
+sm:grid-cols-2
+gap-4
 "
+
 >
 
 
 <input
 
-type="tel"
-
 placeholder="Número de telefone"
 
-className="
-input
-"
+className="campo"
 
 />
 
@@ -325,23 +444,17 @@ type="email"
 
 placeholder="Email"
 
-className="
-input
-"
+className="campo"
 
 />
 
 
 
 <input
-
-type="text"
 
 placeholder="Morada"
 
-className="
-input
-"
+className="campo"
 
 />
 
@@ -349,13 +462,9 @@ input
 
 <input
 
-type="text"
-
 placeholder="Nome do encarregado"
 
-className="
-input
-"
+className="campo"
 
 />
 
@@ -375,36 +484,63 @@ input
 
 {/* Dados académicos */}
 
+
 <div
+
 className="
 bg-white
 rounded-3xl
 shadow-lg
-p-6
+p-5
+sm:p-7
 "
+
 >
 
 
+
 <div
+
 className="
 flex
 items-center
 gap-3
 mb-6
 "
+
 >
 
-<GraduationCap
-className="text-red-600"
-/>
+<div
+
+className="
+w-11
+h-11
+rounded-full
+bg-green-100
+flex
+items-center
+justify-center
+"
+
+>
+
+
+<GraduationCap className="text-green-700"/>
+
+
+</div>
+
 
 
 <h2
+
 className="
-text-2xl
+text-xl
+sm:text-2xl
 font-bold
-text-purple-900
+text-green-800
 "
+
 >
 
 Dados Académicos
@@ -418,47 +554,34 @@ Dados Académicos
 
 
 
+
 <select
 
-className="
-input
-"
+className="campo"
 
 >
 
 <option>
-
 Selecione o curso
-
 </option>
 
+<option>Análises Clínicas</option>
 
-<option>
+<option>Enfermagem Geral</option>
 
-Informática
+<option>Ciências Físicas e Biológicas</option>
 
-</option>
+<option>Ciências Económicas e Jurídicas</option>
 
+<option>Informática</option>
 
-<option>
+<option>Eletrónica e Telecomunicações</option>
 
-Electricidade
+<option>Mecânica (Máquinas e Motores)</option>
 
-</option>
+<option>Eletrónica Industrial e Automação</option>
 
-
-<option>
-
-Ciências Económicas e Jurídicas
-
-</option>
-
-
-<option>
-
-Gestão de Recursos Humanos
-
-</option>
+<option>Petroquímica</option>
 
 
 </select>
@@ -477,36 +600,64 @@ Gestão de Recursos Humanos
 
 {/* Documentos */}
 
+
 <div
+
 className="
 bg-white
 rounded-3xl
 shadow-lg
-p-6
+p-5
+sm:p-7
 "
+
 >
 
 
+
 <div
+
 className="
 flex
 items-center
 gap-3
 mb-6
 "
+
 >
 
-<FileText
-className="text-red-600"
-/>
+
+<div
+
+className="
+w-11
+h-11
+rounded-full
+bg-yellow-100
+flex
+items-center
+justify-center
+"
+
+>
+
+
+<FileText className="text-yellow-600"/>
+
+
+</div>
+
 
 
 <h2
+
 className="
-text-2xl
+text-xl
+sm:text-2xl
 font-bold
-text-purple-900
+text-green-800
 "
+
 >
 
 Documentos
@@ -520,23 +671,27 @@ Documentos
 
 
 
-{/* Foto tipo passe */}
-
-<div className="mb-5">
 
 
-<label
-className="
-block
-font-semibold
-text-gray-700
-mb-2
-"
->
+<div className="space-y-5">
+
+
+
+
+
+<div>
+
+<label className="tituloUpload">
 
 Foto tipo passe
 
 </label>
+
+
+<div className="uploadBox">
+
+
+<Upload/>
 
 
 <input
@@ -545,28 +700,10 @@ type="file"
 
 accept="image/*"
 
-className="
-w-full
-border
-rounded-xl
-p-3
-"
-
->
+/>
 
 
-</input>
-
-
-<p className="
-text-sm
-text-gray-500
-mt-2
-">
-
-Formato permitido: JPG ou PNG
-
-</p>
+</div>
 
 
 </div>
@@ -577,93 +714,20 @@ Formato permitido: JPG ou PNG
 
 
 
-{/* Bilhete de Identidade */}
-
-<div className="mb-5">
-
-
-<label
-
-className="
-block
-font-semibold
-text-gray-700
-mb-2
-"
-
->
-
-Bilhete de Identidade
-
-</label>
-
-
-
-<input
-
-type="file"
-
-accept="application/pdf"
-
-className="
-w-full
-border
-rounded-xl
-p-3
-"
-
->
-
-
-</input>
-
-
-<p
-
-className="
-text-sm
-text-gray-500
-mt-2
-"
-
->
-
-Enviar somente ficheiro PDF
-
-</p>
-
-
-
-</div>
-
-
-
-
-
-
-
-
-{/* Certificado */}
 
 <div>
 
+<label className="tituloUpload">
 
-<label
-
-className="
-block
-font-semibold
-text-gray-700
-mb-2
-"
-
->
-
-Certificado ou Declaração
+Bilhete de Identidade (PDF)
 
 </label>
 
 
+<div className="uploadBox">
+
+
+<Upload/>
 
 
 <input
@@ -672,33 +736,53 @@ type="file"
 
 accept="application/pdf"
 
-className="
-w-full
-border
-rounded-xl
-p-3
-"
-
->
+/>
 
 
-</input>
+</div>
+
+
+</div>
 
 
 
-<p
 
-className="
-text-sm
-text-gray-500
-mt-2
-"
 
->
 
-Enviar certificado ou declaração em PDF
 
-</p>
+
+<div>
+
+<label className="tituloUpload">
+
+Certificado ou Declaração (PDF)
+
+</label>
+
+
+
+<div className="uploadBox">
+
+
+<Upload/>
+
+
+<input
+
+type="file"
+
+accept="application/pdf"
+
+/>
+
+
+</div>
+
+
+
+</div>
+
+
 
 
 
@@ -709,7 +793,13 @@ Enviar certificado ou declaração em PDF
 
 </div>
 
-{/* Botão */}
+
+
+
+
+
+
+
 
 <button
 
@@ -717,22 +807,31 @@ type="submit"
 
 className="
 w-full
-bg-red-600
-hover:bg-red-700
+bg-green-700
+hover:bg-green-800
 text-white
 py-4
 rounded-2xl
 font-bold
 text-lg
-shadow-lg
+shadow-xl
+flex
+items-center
+justify-center
+gap-2
 transition
 "
 
 >
 
+
+<CheckCircle/>
+
 Enviar Inscrição
 
+
 </button>
+
 
 
 
@@ -741,10 +840,17 @@ Enviar Inscrição
 </form>
 
 
+
+
+
 </div>
 
 
+
+
+
 </section>
+
 
 )
 

@@ -1,4 +1,10 @@
-import { Phone, Mail, MapPin, Clock } from "lucide-react";
+import { 
+  Phone, 
+  Mail, 
+  MapPin, 
+  Clock,
+  Send
+} from "lucide-react";
 
 
 export default function Contact(){
@@ -9,11 +15,13 @@ return (
 <section
 id="contactos"
 className="
-py-24
-px-6
+py-20
+px-4
+sm:px-6
 bg-gray-50
 "
 >
+
 
 <div
 className="
@@ -23,7 +31,8 @@ mx-auto
 >
 
 
-{/* Título */}
+
+{/* Cabeçalho */}
 
 <div
 className="
@@ -34,10 +43,11 @@ mb-14
 
 <h2
 className="
-text-4xl
+text-3xl
+sm:text-4xl
 md:text-5xl
 font-extrabold
-text-purple-900
+text-green-700
 "
 >
 Contactos
@@ -48,13 +58,29 @@ Contactos
 className="
 mt-4
 text-gray-600
+max-w-2xl
+mx-auto
 "
 >
-Entre em contacto com o Colégio Jerma para mais informações.
+Entre em contacto com o CEIPP JoMorais para obter
+mais informações sobre inscrições, cursos e serviços.
 </p>
 
 
+<div
+className="
+w-20
+h-1
+bg-yellow-500
+mx-auto
+mt-5
+rounded-full
+"
+></div>
+
+
 </div>
+
 
 
 
@@ -73,6 +99,8 @@ items-start
 
 
 
+
+
 {/* Informações */}
 
 <div
@@ -82,7 +110,49 @@ space-y-5
 >
 
 
-<div className="
+
+
+
+{
+[
+{
+titulo:"Telefone",
+texto:"+244 945 287 061",
+icon:<Phone/>,
+cor:"bg-green-100",
+iconColor:"text-green-700"
+},
+
+{
+titulo:"Email",
+texto:"colegiojomorais@gmail.com",
+icon:<Mail/>,
+cor:"bg-yellow-100",
+iconColor:"text-yellow-600"
+},
+
+{
+titulo:"Localização",
+texto:"1º de Maio, Zona do Zangoio, Rua 3x3, Cabinda - Angola",
+icon:<MapPin/>,
+cor:"bg-green-100",
+iconColor:"text-green-700"
+},
+
+{
+titulo:"Horário",
+texto:"Segunda - Sexta | 07h00 - 18h00",
+icon:<Clock/>,
+cor:"bg-yellow-100",
+iconColor:"text-yellow-600"
+}
+
+].map((item,index)=>(
+
+
+<div
+key={index}
+className="
 bg-white
 rounded-2xl
 p-6
@@ -92,229 +162,73 @@ items-center
 gap-5
 hover:shadow-xl
 transition
+border
+border-gray-100
 "
 >
 
+
 <div
-className="
+className={`
 w-14
 h-14
 rounded-full
-bg-red-100
 flex
 items-center
 justify-center
-"
+${item.cor}
+`}
 >
 
-<Phone
-className="text-red-600"
-/>
+
+<span
+className={item.iconColor}
+>
+{item.icon}
+</span>
+
 
 </div>
+
+
+
 
 
 <div>
 
-<h3 className="
-font-bold
-text-purple-900
-"
->
-Telefone
-</h3>
-
-<p className="
-text-gray-600
-"
->
-+244 946 614 043
-</p>
-
-</div>
-
-
-</div>
-
-
-
-
-
-<div className="
-bg-white
-rounded-2xl
-p-6
-shadow-md
-flex
-items-center
-gap-5
-hover:shadow-xl
-transition
-"
->
-
-<div
+<h3
 className="
-w-14
-h-14
-rounded-full
-bg-purple-100
-flex
-items-center
-justify-center
-"
->
-
-<Mail
-className="text-purple-700"
-/>
-
-</div>
-
-
-<div>
-
-<h3 className="
 font-bold
-text-purple-900
+text-green-800
 "
 >
-Email
+{item.titulo}
 </h3>
 
-<p className="
-text-gray-600
-"
->
-ceippjerma@gmail.com
-</p>
 
-</div>
-
-
-</div>
-
-
-
-
-
-
-
-<div className="
-bg-white
-rounded-2xl
-p-6
-shadow-md
-flex
-items-center
-gap-5
-hover:shadow-xl
-transition
-"
->
-
-<div
+<p
 className="
-w-14
-h-14
-rounded-full
-bg-red-100
-flex
-items-center
-justify-center
-"
->
-
-<MapPin
-className="text-red-600"
-/>
-
-</div>
-
-
-<div>
-
-<h3 className="
-font-bold
-text-purple-900
-"
->
-Localização
-</h3>
-
-<p className="
 text-gray-600
+text-sm
+sm:text-base
 "
 >
-1º de Maio, Cainda - Angola
+{item.texto}
 </p>
 
 
 </div>
 
 
-</div>
-
-
-
-
-
-
-
-<div className="
-bg-white
-rounded-2xl
-p-6
-shadow-md
-flex
-items-center
-gap-5
-hover:shadow-xl
-transition
-"
->
-
-<div
-className="
-w-14
-h-14
-rounded-full
-bg-purple-100
-flex
-items-center
-justify-center
-"
->
-
-<Clock
-className="text-purple-700"
-/>
 
 </div>
 
 
-<div>
 
-<h3 className="
-font-bold
-text-purple-900
-"
->
-Horário
-</h3>
-
-<p className="
-text-gray-600
-"
->
-Segunda - Sexta | 07h00 - 18h00
-</p>
+))
 
 
-</div>
-
-
-</div>
+}
 
 
 
@@ -331,23 +245,32 @@ Segunda - Sexta | 07h00 - 18h00
 
 {/* Formulário */}
 
+
 <div
+
 className="
 bg-white
 rounded-3xl
 shadow-xl
-p-8
+p-6
+sm:p-8
+border
+border-gray-100
 "
+
 >
 
 
+
 <h3
+
 className="
 text-2xl
 font-bold
-text-purple-900
+text-green-700
 mb-6
 "
+
 >
 Envie uma mensagem
 </h3>
@@ -355,11 +278,16 @@ Envie uma mensagem
 
 
 
+
 <form
+
 className="
-space-y-5
+space-y-4
 "
+
 >
+
+
 
 
 <input
@@ -374,11 +302,15 @@ px-5
 py-3
 rounded-xl
 border
+border-gray-200
 outline-none
 focus:ring-2
-focus:ring-purple-600
+focus:ring-green-600
 "
+
 />
+
+
 
 
 
@@ -394,12 +326,14 @@ px-5
 py-3
 rounded-xl
 border
+border-gray-200
 outline-none
 focus:ring-2
-focus:ring-purple-600
+focus:ring-green-600
 "
 
 />
+
 
 
 
@@ -417,12 +351,15 @@ px-5
 py-3
 rounded-xl
 border
+border-gray-200
 outline-none
 focus:ring-2
-focus:ring-purple-600
+focus:ring-green-600
 "
 
 />
+
+
 
 
 
@@ -440,12 +377,17 @@ px-5
 py-3
 rounded-xl
 border
+border-gray-200
 outline-none
 focus:ring-2
-focus:ring-purple-600
+focus:ring-green-600
 "
 
 ></textarea>
+
+
+
+
 
 
 
@@ -456,30 +398,47 @@ className="
 w-full
 py-3
 rounded-xl
-bg-purple-700
+bg-green-700
+hover:bg-green-800
 text-white
 font-bold
-hover:bg-purple-900
+flex
+items-center
+justify-center
+gap-2
 transition
+shadow-lg
 "
 
 >
 
+
+<Send size={18}/>
+
 Enviar Mensagem
 
+
 </button>
+
+
+
 
 
 
 </form>
 
 
+
+</div>
+
+
+
+
+
 </div>
 
 
 
-
-</div>
 
 
 </div>
@@ -489,5 +448,6 @@ Enviar Mensagem
 
 
 )
+
 
 }
