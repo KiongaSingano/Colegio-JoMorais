@@ -1,81 +1,141 @@
-import { 
-  Phone, 
-  Mail, 
-  MapPin, 
-  Clock,
-  Send
+import {
+  PhoneCall,
+  MailCheck,
+  MapPinned,
+  Clock3,
+  SendHorizontal
 } from "lucide-react";
 
 
 export default function Contact(){
 
 
-return (
+const contactos=[
+
+{
+titulo:"Telefone",
+texto:"+244 945 287 061",
+icon:<PhoneCall size={28}/>,
+bg:"bg-green-100",
+color:"text-green-700"
+},
+
+{
+titulo:"Email",
+texto:"colegiojomorais@gmail.com",
+icon:<MailCheck size={28}/>,
+bg:"bg-yellow-100",
+color:"text-yellow-600"
+},
+
+{
+titulo:"Localização",
+texto:"1º de Maio, Zona do Zangoio, Rua 3x3, Cabinda - Angola",
+icon:<MapPinned size={28}/>,
+bg:"bg-green-100",
+color:"text-green-700"
+},
+
+{
+titulo:"Horário",
+texto:"Segunda - Sexta | 07h00 - 18h00",
+icon:<Clock3 size={28}/>,
+bg:"bg-yellow-100",
+color:"text-yellow-600"
+}
+
+];
+
+
+
+
+
+return(
 
 <section
+
 id="contactos"
+
 className="
 py-20
 px-4
 sm:px-6
 bg-gray-50
 "
+
 >
 
 
 <div
+
 className="
 max-w-7xl
 mx-auto
 "
+
 >
 
 
 
-{/* Cabeçalho */}
+{/* Título */}
 
 <div
+
 className="
 text-center
 mb-14
 "
+
 >
 
+
 <h2
+
 className="
 text-3xl
 sm:text-4xl
 md:text-5xl
-font-extrabold
-text-green-700
+font-black
+text-green-800
 "
+
 >
+
 Contactos
+
 </h2>
 
 
+
 <p
+
 className="
 mt-4
 text-gray-600
 max-w-2xl
 mx-auto
 "
+
 >
-Entre em contacto com o CEIPP JoMorais para obter
-mais informações sobre inscrições, cursos e serviços.
+
+Entre em contacto com o CEIPP JoMorais para
+informações sobre inscrições, cursos e serviços.
+
 </p>
 
 
+
 <div
+
 className="
-w-20
+w-24
 h-1
-bg-yellow-500
+bg-yellow-400
 mx-auto
 mt-5
 rounded-full
 "
+
 ></div>
 
 
@@ -86,15 +146,16 @@ rounded-full
 
 
 
+
 <div
+
 className="
 grid
 lg:grid-cols-2
 gap-10
-items-start
 "
->
 
+>
 
 
 
@@ -103,88 +164,65 @@ items-start
 
 {/* Informações */}
 
+
 <div
+
 className="
 space-y-5
 "
+
 >
 
 
-
-
-
 {
-[
-{
-titulo:"Telefone",
-texto:"+244 945 287 061",
-icon:<Phone/>,
-cor:"bg-green-100",
-iconColor:"text-green-700"
-},
-
-{
-titulo:"Email",
-texto:"colegiojomorais@gmail.com",
-icon:<Mail/>,
-cor:"bg-yellow-100",
-iconColor:"text-yellow-600"
-},
-
-{
-titulo:"Localização",
-texto:"1º de Maio, Zona do Zangoio, Rua 3x3, Cabinda - Angola",
-icon:<MapPin/>,
-cor:"bg-green-100",
-iconColor:"text-green-700"
-},
-
-{
-titulo:"Horário",
-texto:"Segunda - Sexta | 07h00 - 18h00",
-icon:<Clock/>,
-cor:"bg-yellow-100",
-iconColor:"text-yellow-600"
-}
-
-].map((item,index)=>(
+contactos.map((item,index)=>(
 
 
 <div
+
 key={index}
+
 className="
+group
 bg-white
-rounded-2xl
+rounded-3xl
 p-6
 shadow-md
+border
+border-gray-100
 flex
 items-center
 gap-5
 hover:shadow-xl
-transition
-border
-border-gray-100
+hover:-translate-y-1
+transition-all
+duration-300
 "
+
 >
 
 
 <div
+
 className={`
-w-14
-h-14
-rounded-full
+w-16
+h-16
+rounded-2xl
 flex
 items-center
 justify-center
-${item.cor}
+${item.bg}
+group-hover:scale-110
+transition
 `}
+
 >
 
 
-<span
-className={item.iconColor}
->
+<span className={item.color}>
+
 {item.icon}
+
 </span>
 
 
@@ -193,27 +231,38 @@ className={item.iconColor}
 
 
 
-
 <div>
 
+
 <h3
+
 className="
-font-bold
+font-extrabold
 text-green-800
+text-lg
 "
+
 >
+
 {item.titulo}
+
 </h3>
 
 
+
 <p
+
 className="
 text-gray-600
 text-sm
 sm:text-base
+mt-1
 "
+
 >
+
 {item.texto}
+
 </p>
 
 
@@ -224,16 +273,13 @@ sm:text-base
 </div>
 
 
-
 ))
-
 
 }
 
 
-
-
 </div>
+
 
 
 
@@ -253,7 +299,7 @@ bg-white
 rounded-3xl
 shadow-xl
 p-6
-sm:p-8
+sm:p-10
 border
 border-gray-100
 "
@@ -261,20 +307,20 @@ border-gray-100
 >
 
 
-
 <h3
 
 className="
 text-2xl
-font-bold
-text-green-700
+font-black
+text-green-800
 mb-6
 "
 
 >
-Envie uma mensagem
-</h3>
 
+Envie uma mensagem
+
+</h3>
 
 
 
@@ -282,12 +328,10 @@ Envie uma mensagem
 <form
 
 className="
-space-y-4
+space-y-5
 "
 
 >
-
-
 
 
 <input
@@ -304,13 +348,13 @@ rounded-xl
 border
 border-gray-200
 outline-none
+focus:border-green-600
 focus:ring-2
-focus:ring-green-600
+focus:ring-green-100
+transition
 "
 
 />
-
-
 
 
 
@@ -328,8 +372,10 @@ rounded-xl
 border
 border-gray-200
 outline-none
+focus:border-green-600
 focus:ring-2
-focus:ring-green-600
+focus:ring-green-100
+transition
 "
 
 />
@@ -338,10 +384,9 @@ focus:ring-green-600
 
 
 
-
 <input
 
-type="text"
+type="tel"
 
 placeholder="Telefone"
 
@@ -353,12 +398,13 @@ rounded-xl
 border
 border-gray-200
 outline-none
+focus:border-green-600
 focus:ring-2
-focus:ring-green-600
+focus:ring-green-100
+transition
 "
 
 />
-
 
 
 
@@ -369,7 +415,7 @@ focus:ring-green-600
 
 rows="5"
 
-placeholder="Mensagem"
+placeholder="Escreva a sua mensagem..."
 
 className="
 w-full
@@ -379,8 +425,10 @@ rounded-xl
 border
 border-gray-200
 outline-none
+focus:border-green-600
 focus:ring-2
-focus:ring-green-600
+focus:ring-green-100
+transition
 "
 
 ></textarea>
@@ -391,12 +439,13 @@ focus:ring-green-600
 
 
 
-
 <button
+
+type="submit"
 
 className="
 w-full
-py-3
+py-4
 rounded-xl
 bg-green-700
 hover:bg-green-800
@@ -405,23 +454,21 @@ font-bold
 flex
 items-center
 justify-center
-gap-2
-transition
+gap-3
 shadow-lg
+hover:shadow-xl
+transition
 "
 
 >
 
 
-<Send size={18}/>
+<SendHorizontal size={20}/>
 
 Enviar Mensagem
 
 
 </button>
-
-
-
 
 
 
@@ -435,9 +482,8 @@ Enviar Mensagem
 
 
 
+
 </div>
-
-
 
 
 
@@ -448,6 +494,5 @@ Enviar Mensagem
 
 
 )
-
 
 }
