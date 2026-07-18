@@ -239,7 +239,7 @@ text-yellow-400
 "
 />
 
-+244 946 614 043
++244 945 287 061
 
 </p>
 
@@ -283,7 +283,7 @@ text-yellow-400
 "
 />
 
-Angola
+1º de Maio, Zona do Zangoio, Rua 3x3, Cabinda - Angola
 
 </p>
 
@@ -310,7 +310,7 @@ mt-7
 
 
 <a
-href="#"
+href="https://web.facebook.com/profile.php?id=61573823947016"
 className="
 w-11
 h-11
@@ -379,7 +379,7 @@ transition
 
 
 <a
-href="#"
+href="https://wa.me/244945287061"
 className="
 w-11
 h-11
@@ -432,8 +432,7 @@ sm:text-sm
 >
 
 
-© {new Date().getFullYear()} 
-Complexo Escola e Instituto Politécnico Privado JoMorais.
+© {new Date() .getFullYear()} Complexo Escola e Instituto Politécnico Privado JoMorais.
 <br/>
 
 Todos os direitos reservados.
